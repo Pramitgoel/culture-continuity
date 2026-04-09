@@ -164,7 +164,7 @@ export default function Home() {
             }}
             style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
           >
-            Culture Continuity
+            Rooted
           </button>
           <div className={homeStyles.tabs}>
             <button

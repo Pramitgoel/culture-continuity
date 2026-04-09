@@ -5,7 +5,7 @@ export default function HomepageMock2() {
   return (
     <div className={styles.splitWrapper}>
       <div className={styles.leftPane}>
-        <h1>Welcome to Culture Continuity</h1>
+        <h1>Welcome to Rooted</h1>
         <p>Start your journey in a new city or university with confidence. Stay rooted in your culture while exploring new ones.</p>
         <button className={styles.ctaBtn}>Get Started</button>
       </div>

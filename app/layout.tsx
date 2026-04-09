@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Culture Continuity - Preserve Your Cultural Identity',
+  title: 'Rooted - Preserve Your Cultural Identity',
   description:
     'Find real cultural resources, communities, and events when moving to a new city. Connect with places of worship, cultural centers, restaurants, and communities that share your heritage.',
   keywords: [
@@ -19,18 +19,18 @@ export const metadata: Metadata = {
     'cultural resources',
     'communities',
   ],
-  authors: [{ name: 'Culture Continuity Team' }],
-  creator: 'Culture Continuity',
-  publisher: 'Culture Continuity',
+  authors: [{ name: 'Rooted Team' }],
+  creator: 'Rooted',
+  publisher: 'Rooted',
   openGraph: {
-    title: 'Culture Continuity',
+    title: 'Rooted',
     description: 'Preserve your cultural identity in new cities',
     type: 'website',
     url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Culture Continuity',
+    title: 'Rooted',
     description: 'Find your cultural community in any city',
   },
 };

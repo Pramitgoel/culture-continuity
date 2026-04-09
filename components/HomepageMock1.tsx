@@ -25,15 +25,15 @@ export default function HomepageMock1({
               <span className={styles.highlight}> grow in a new one.</span>
             </h2>
             <p className={styles.lead}>
-              Moving to a new city or starting college somewhere unfamiliar can feel isolating. Culture Continuity helps you preserve your identity, discover nearby communities, and build meaningful cross-cultural connections.
+              Moving to a new city or starting college somewhere unfamiliar can feel isolating. Rooted helps you preserve your identity, discover nearby communities, and build meaningful cross-cultural connections.
             </p>
             <div className={styles.heroActions}>
               <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={onGetStarted}>Get Started</button>
             </div>
           </article>
 
-          <aside className={styles.heroCard} aria-label="Why choose Culture Continuity">
-            <h3 className={styles.sideTitle}>Why Culture Continuity?</h3>
+          <aside className={styles.heroCard} aria-label="Why choose Rooted">
+            <h3 className={styles.sideTitle}>Why Rooted?</h3>
             <ul className={styles.featureList}>
               <li className={styles.featureItem}>
                 <strong>Preserve Your Culture</strong>

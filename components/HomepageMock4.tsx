@@ -5,7 +5,7 @@ export default function HomepageMock4() {
   return (
     <div className={styles.storyScrollWrapper}>
       <section className={styles.heroSection}>
-        <h1>Culture Continuity</h1>
+        <h1>Rooted</h1>
         <p>Every journey is a story. Scroll to see how we help you stay connected and thrive.</p>
         <button className={styles.ctaBtn}>Get Started</button>
       </section>

@@ -24,7 +24,7 @@ export default function NavBar() {
   return (
     <nav className={styles['homepage-header']} style={{ position: 'sticky', top: 0, zIndex: 40 }}>
       <div className={styles['header-content']}>
-        <div className={styles['site-title']} style={{ cursor: 'pointer' }} onClick={goHome}>Culture Continuity</div>
+        <div className={styles['site-title']} style={{ cursor: 'pointer' }} onClick={goHome}>Rooted</div>
         <div className={styles['tabs']}>
           <button className={styles['tab']} onClick={goForm}>📝 Enter Details</button>
           <button className={styles['tab']} onClick={goPreserve}>🛡️ Preserve My Culture</button>

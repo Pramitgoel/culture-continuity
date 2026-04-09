@@ -10,7 +10,7 @@ export default function Homepage({ onGetStarted }: HomepageProps) {
     <div>
       <div className={styles['hero-section']}>
         <div className={styles['hero-content']}>
-          <div className={styles['hero-title']}>Culture Continuity</div>
+          <div className={styles['hero-title']}>Rooted</div>
           <div className={styles['hero-subtitle']}>
             Stepping into a new city or starting university?<br/>
             Moving to a new place doesn’t mean leaving your culture behind. Stay connected to your roots while exploring and engaging with the cultures around you.
