@@ -51,7 +51,6 @@ export function ResultsDisplay({ results, suggestedRoutines, culturalAnalysis, o
   useEffect(() => {
     if (mainSectionProp) setMainSection(mainSectionProp);
   }, [mainSectionProp]);
-  const [activeTab, setActiveTab] = useState<'communities' | 'spaces' | 'events' | 'routine'>('communities');
   const [savedResources, setSavedResources] = useState<Set<string>>(new Set());
 
   const toggleSave = (resourceId: string) => {
@@ -76,7 +75,36 @@ export function ResultsDisplay({ results, suggestedRoutines, culturalAnalysis, o
     }
   }
 
-  const renderResources = (resources: CulturalResource[], isSpaces = false) => {
+  const getVisibleSpaces = (resources: CulturalResource[]): CulturalResource[] => {
+    const uniqueByName = new Set<string>();
+    const normalized = resources.filter((resource) => {
+      const key = resource.name.trim().toLowerCase();
+      if (uniqueByName.has(key)) return false;
+      uniqueByName.add(key);
+      return true;
+    });
+
+    // Keep URL handling strict and consistent with card behavior.
+    const withValidUrls = normalized.filter((resource) => !resource.website || isValidUrl(resource.website));
+
+    let temples = 0;
+    const picked: CulturalResource[] = [];
+    for (const resource of withValidUrls) {
+      const isTemple = resource.tags && (resource.tags.includes('temple') || resource.tags.includes('hindu_temple'));
+      if (isTemple) {
+        if (temples >= 2) continue;
+        temples++;
+      }
+      picked.push(resource);
+      if (picked.length >= 10) break;
+    }
+
+    return picked;
+  };
+
+  const visibleSpaces = getVisibleSpaces(results.spaces);
+
+  const renderResources = (resources: CulturalResource[]) => {
     if (resources.length === 0) {
       return (
         <div className='text-center py-8 text-gray-500'>
@@ -86,38 +114,7 @@ export function ResultsDisplay({ results, suggestedRoutines, culturalAnalysis, o
       );
     }
 
-    // Enforce: max 10, max 2 temples, and variety for spaces
-    let filtered = resources;
-    // Only apply for spaces (not communities/events)
-    if (isSpaces) {
-      let temples = 0;
-      const seenTypes = new Set();
-      filtered = [];
-      for (const r of resources) {
-        const isTemple = (r.tags && (r.tags.includes('temple') || r.tags.includes('hindu_temple')));
-        if (isTemple) {
-          if (temples >= 2) continue;
-          temples++;
-        }
-        // Try to maximize variety by type
-        const mainType = (r.tags && r.tags.length > 0) ? r.tags[0] : r.category;
-        if (seenTypes.has(mainType) && !isTemple) continue;
-        seenTypes.add(mainType);
-        filtered.push(r);
-        if (filtered.length >= 10) break;
-      }
-      // If not enough, fill with next best regardless of type/temple
-      if (filtered.length < 10) {
-        for (const r of resources) {
-          if (!filtered.includes(r)) {
-            filtered.push(r);
-            if (filtered.length >= 10) break;
-          }
-        }
-      }
-    } else {
-      filtered = resources.slice(0, 10);
-    }
+    let filtered = resources.slice(0, 10);
 
     // Filter out resources with invalid or unreachable website URLs
     filtered = filtered.filter(r => !r.website || isValidUrl(r.website));
@@ -144,7 +141,7 @@ export function ResultsDisplay({ results, suggestedRoutines, culturalAnalysis, o
         <div className='bg-gradient-to-r from-primary to-secondary rounded-lg shadow-lg p-8 text-white border border-primary border-opacity-30'>
           <h2 className='text-4xl font-bold mb-3'>Your Cultural Resources</h2>
           <p className='text-white text-opacity-95 font-medium'>
-            Found {results.totalResultsFound} verified resources in your location
+            Showing {visibleSpaces.length} nearby spaces in your location
           </p>
           {results.limitedResultsWarning && (
             <div className='mt-4 bg-white bg-opacity-20 border border-white border-opacity-30 rounded p-3'>
@@ -200,114 +197,14 @@ export function ResultsDisplay({ results, suggestedRoutines, culturalAnalysis, o
       {/* Section Content */}
       {mainSection === 'preserve' ? (
         <>
-          {/* Tabs for "Preserve My Culture" */}
-          <div className='flex gap-3 border-b-2 border-gray-300 overflow-x-auto bg-gray-50 rounded-t-lg p-1 mt-2'>
-            <button
-              onClick={() => setActiveTab('communities')}
-              className={`px-5 py-3 font-semibold whitespace-nowrap transition rounded-t-md ${
-                activeTab === 'communities'
-                  ? 'border-b-3 border-primary text-primary bg-white shadow-md'
-                  : 'text-gray-700 hover:text-gray-900 hover:bg-white'
-              }`}
-            >
-              Communities ({results.communities.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('spaces')}
-              className={`px-5 py-3 font-semibold whitespace-nowrap transition rounded-t-md ${
-                activeTab === 'spaces'
-                  ? 'border-b-3 border-primary text-primary bg-white shadow-md'
-                  : 'text-gray-700 hover:text-gray-900 hover:bg-white'
-              }`}
-            >
-              Spaces ({results.spaces.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('events')}
-              className={`px-5 py-3 font-semibold whitespace-nowrap transition rounded-t-md ${
-                activeTab === 'events'
-                  ? 'border-b-3 border-primary text-primary bg-white shadow-md'
-                  : 'text-gray-700 hover:text-gray-900 hover:bg-white'
-              }`}
-            >
-              Events ({results.events.length})
-            </button>
-
-          </div>
-
-          {/* Tab Content */}
           <div className='min-h-96'>
-            {activeTab === 'communities' && (
-              <div>
-                <h3 className='text-2xl font-bold text-gray-900 mb-3'>Communities & Organizations</h3>
-                <p className='text-gray-700 mb-6 leading-relaxed border-l-4 border-primary pl-4 py-2 bg-amber-50 rounded'>
-                  Join cultural clubs, student organizations, and community groups to connect with people who share your heritage.
-                </p>
-                {renderResources(results.communities)}
-              </div>
-            )}
-
-            {activeTab === 'spaces' && (
-              <div>
-                <h3 className='text-2xl font-bold text-gray-900 mb-3'>Spaces & Resources</h3>
-                <p className='text-gray-700 mb-6 leading-relaxed border-l-4 border-secondary pl-4 py-2 bg-yellow-50 rounded'>
-                  Discover restaurants, grocery stores, places of worship, and cultural centers near you.
-                </p>
-                {renderResources(results.spaces, true)}
-              </div>
-            )}
-
-            {activeTab === 'events' && (
-              <div>
-                <h3 className='text-2xl font-bold text-gray-900 mb-3'>Events & Gatherings</h3>
-                <p className='text-gray-700 mb-6 leading-relaxed border-l-4 border-accent pl-4 py-2 bg-orange-50 rounded'>
-                  Attend upcoming festivals, celebrations, and cultural events in your area.
-                </p>
-                {renderResources(results.events)}
-              </div>
-            )}
-
-            {activeTab === 'routine' && suggestedRoutines && (
-              <div>
-                <h3 className='text-2xl font-bold text-gray-900 mb-3'>📅 Suggested Weekly Cultural Routine</h3>
-                <p className='text-gray-700 mb-6 leading-relaxed border-l-4 border-accent pl-4 py-2 bg-green-50 rounded'>
-                  Based on your engagement level and available resources, here&apos;s a suggested routine to help you stay connected:
-                </p>
-
-                <div className='space-y-6'>
-                  {suggestedRoutines.map((routine, idx) => (
-                    <div key={idx} className='bg-white rounded-lg shadow-lg p-6 border-l-4 border-primary hover:shadow-xl transition'>
-                      <div className='flex justify-between items-start mb-4'>
-                        <h4 className='text-xl font-bold text-gray-900'>{routine.dayOfWeek}</h4>
-                        <span className='text-sm bg-primary bg-opacity-20 text-primary px-4 py-2 rounded-full font-semibold'>
-                          {routine.estimatedTimeRequirement}
-                        </span>
-                      </div>
-
-                      <div className='space-y-3'>
-                        {routine.activities.map((activity, actIdx) => (
-                          <div
-                            key={actIdx}
-                            className='bg-gray-50 rounded-lg p-4 border-2 border-gray-300 hover:border-primary hover:bg-amber-50 transition'
-                          >
-                            <div className='flex justify-between items-start mb-2'>
-                              <h5 className='font-bold text-gray-900'>{activity.resourceName}</h5>
-                              <span className='text-xs bg-primary bg-opacity-20 text-primary px-3 py-1 rounded-full font-semibold'>
-                                {activity.type}
-                              </span>
-                            </div>
-                            <p className='text-sm text-gray-700 mb-2'>{activity.description}</p>
-                            <p className='text-sm text-gray-600'>
-                              <span className='font-bold'>Frequency:</span> {activity.recommendedFrequency}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            <div>
+              <h3 className='text-2xl font-bold text-gray-900 mb-3'>Spaces & Resources</h3>
+              <p className='text-gray-700 mb-6 leading-relaxed border-l-4 border-secondary pl-4 py-2 bg-yellow-50 rounded'>
+                Discover restaurants, grocery stores, places of worship, and cultural centers near you.
+              </p>
+              {renderResources(visibleSpaces)}
+            </div>
           </div>
         </>
       ) : (
