@@ -61,6 +61,21 @@ export function CulturalUnderstanding({ analysis, results, hideHeader }: Cultura
     label: string;
   };
 
+  function normalizeCultureKey(culture: string) {
+    const value = culture.toLowerCase();
+
+    if (value.includes('latin')) return 'latin american';
+    if (value.includes('afric')) return 'african';
+    if (value.includes('middle east') || value.includes('arab')) return 'middle eastern';
+    if (value.includes('south asian')) return 'south asian';
+    if (value.includes('india') || value.includes('hindi')) return 'indian';
+    if (value.includes('east asian') || value.includes('chinese') || value.includes('korean') || value.includes('japanese')) return 'east asian';
+    if (value.includes('north american') || value.includes('american')) return 'north american';
+    if (value.includes('europe')) return 'european';
+
+    return value;
+  }
+
   const curatedDemoFallback: Record<string, IntegrationIdea[]> = {
     'north american': [
       {
@@ -140,6 +155,84 @@ export function CulturalUnderstanding({ analysis, results, hideHeader }: Cultura
         label: 'Museum Visit',
       },
     ],
+    indian: [
+      {
+        id: 'in-demo-1',
+        title: 'Shanti Indian Cuisine (Dorchester)',
+        description: 'Try regional Indian dishes in a well-known local restaurant to get a grounded introduction to everyday food traditions.',
+        label: 'Try a Meal',
+      },
+      {
+        id: 'in-demo-2',
+        title: 'India Society of Worcester Public Diwali Program',
+        description: 'Attend a large public cultural celebration with music, dance, and community programming.',
+        label: 'Attend Event',
+      },
+      {
+        id: 'in-demo-3',
+        title: 'Museum of Fine Arts South Asian Collection',
+        description: 'Use one museum visit to understand South Asian visual traditions, symbolism, and history.',
+        label: 'Museum Visit',
+      },
+      {
+        id: 'in-demo-4',
+        title: 'Patel Brothers (Waltham)',
+        description: 'Visit a dedicated Indian grocery to see ingredients, products, and everyday household staples.',
+        label: 'Visit Market',
+      },
+    ],
+    'south asian': [
+      {
+        id: 'sa-demo-1',
+        title: 'Shanti Indian Cuisine (Dorchester)',
+        description: 'Try regional South Asian dishes in a well-known local restaurant to get a grounded introduction to everyday food traditions.',
+        label: 'Try a Meal',
+      },
+      {
+        id: 'sa-demo-2',
+        title: 'India Society of Worcester Public Diwali Program',
+        description: 'Attend a large public cultural celebration with music, dance, and community programming.',
+        label: 'Attend Event',
+      },
+      {
+        id: 'sa-demo-3',
+        title: 'Museum of Fine Arts South Asian Collection',
+        description: 'Use one museum visit to understand South Asian visual traditions, symbolism, and history.',
+        label: 'Museum Visit',
+      },
+      {
+        id: 'sa-demo-4',
+        title: 'Patel Brothers (Waltham)',
+        description: 'Visit a dedicated South Asian grocery to see ingredients, products, and everyday household staples.',
+        label: 'Visit Market',
+      },
+    ],
+    'middle eastern': [
+      {
+        id: 'me-demo-1',
+        title: 'Brookline Lunch - Middle Eastern Kitchen',
+        description: 'Try Levantine and Eastern Mediterranean dishes in a local restaurant with recognizable regional staples.',
+        label: 'Try a Meal',
+      },
+      {
+        id: 'me-demo-2',
+        title: 'Arab American Festival of Boston',
+        description: 'Attend a public community festival featuring performance, food, and cultural programming.',
+        label: 'Attend Event',
+      },
+      {
+        id: 'me-demo-3',
+        title: 'Harvard Art Museums Islamic Art Galleries',
+        description: 'Visit a named museum collection to understand regional design, craft, and artistic heritage.',
+        label: 'Museum Visit',
+      },
+      {
+        id: 'me-demo-4',
+        title: 'Sevan Bakery & Middle Eastern Market (Watertown)',
+        description: 'Browse a specialty market for breads, pantry staples, and prepared foods common across the region.',
+        label: 'Visit Market',
+      },
+    ],
   };
 
   function buildCultureSpecificFallback(culture: string): IntegrationIdea[] {
@@ -214,7 +307,7 @@ export function CulturalUnderstanding({ analysis, results, hideHeader }: Cultura
   }
 
   function getIntegrationResources(culture: string) {
-    const lowerCulture = culture.toLowerCase();
+    const lowerCulture = normalizeCultureKey(culture);
     const allowedCategories = new Set(['event', 'restaurant', 'cultural_center', 'grocery_store']);
 
     const disallowedTerms = [
@@ -303,6 +396,36 @@ export function CulturalUnderstanding({ analysis, results, hideHeader }: Cultura
 
     const profileFallback = buildCultureSpecificFallback(culture);
     for (const item of profileFallback) {
+      if (combined.length >= 4) break;
+      if (!combined.some((existing) => existing.title === item.title)) {
+        combined.push(item);
+      }
+    }
+
+    const specificCityFallback = allCandidates
+      .filter((resource) => {
+        if (!allowedCategories.has(resource.category)) return false;
+        const text = `${resource.name} ${resource.description || ''}`.toLowerCase();
+        if (disallowedTerms.some((term) => text.includes(term))) return false;
+        return cultureMatchesResource(resource, culture);
+      })
+      .sort((a, b) => ((b.rating || 0) - (a.rating || 0)) || ((b.reviewCount || 0) - (a.reviewCount || 0)))
+      .map((resource, idx) => ({
+        id: `${lowerCulture}-specific-${resource.id}-${idx}`,
+        title: resource.name,
+        description:
+          resource.description ||
+          (resource.category === 'event'
+            ? `Attend ${resource.name} in ${analysis.destination.city} for a concrete local cultural experience.`
+            : resource.category === 'restaurant'
+            ? `Try ${resource.name} in ${analysis.destination.city} to experience local food culture directly.`
+            : resource.category === 'grocery_store'
+            ? `Visit ${resource.name} in ${analysis.destination.city} to explore ingredients and everyday staples.`
+            : `Visit ${resource.name} in ${analysis.destination.city} to connect with active local cultural spaces.`),
+        label: getTryOnceLabel(resource.category),
+      }));
+
+    for (const item of specificCityFallback) {
       if (combined.length >= 4) break;
       if (!combined.some((existing) => existing.title === item.title)) {
         combined.push(item);
