@@ -245,7 +245,7 @@ export default function Home() {
         <div style={{ padding: 24, textAlign: 'center' }}>
           <h2 style={{ fontWeight: 700, fontSize: 22, color: '#1e293b', marginBottom: 8 }}>Please fill the form first</h2>
           <p style={{ color: '#334155', marginBottom: 18 }}>
-            To access <b>"Preserve My Culture"</b> or <b>"Explore Local Cultures"</b>, please enter your details first.
+              To access <b>Preserve My Culture</b> or <b>Explore Local Cultures</b>, please enter your details first.
           </p>
           <button
             onClick={() => { setShowFillFormModal(false); goToForm(); }}
