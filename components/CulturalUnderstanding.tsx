@@ -432,6 +432,37 @@ export function CulturalUnderstanding({ analysis, results, hideHeader }: Cultura
       }
     }
 
+    // Final safety net: if culture labels differ between environments,
+    // fill remaining slots with specific named city resources (never generic placeholders).
+    const cityNamedFallback = allCandidates
+      .filter((resource) => {
+        if (!allowedCategories.has(resource.category)) return false;
+        const text = `${resource.name} ${resource.description || ''}`.toLowerCase();
+        return !disallowedTerms.some((term) => text.includes(term));
+      })
+      .sort((a, b) => ((b.rating || 0) - (a.rating || 0)) || ((b.reviewCount || 0) - (a.reviewCount || 0)))
+      .map((resource, idx) => ({
+        id: `${lowerCulture}-city-${resource.id}-${idx}`,
+        title: resource.name,
+        description:
+          resource.description ||
+          (resource.category === 'event'
+            ? `Attend ${resource.name} in ${analysis.destination.city} for a concrete local cultural experience.`
+            : resource.category === 'restaurant'
+            ? `Try ${resource.name} in ${analysis.destination.city} to experience local food culture directly.`
+            : resource.category === 'grocery_store'
+            ? `Visit ${resource.name} in ${analysis.destination.city} to explore ingredients and everyday staples.`
+            : `Visit ${resource.name} in ${analysis.destination.city} to connect with active local cultural spaces.`),
+        label: getTryOnceLabel(resource.category),
+      }));
+
+    for (const item of cityNamedFallback) {
+      if (combined.length >= 4) break;
+      if (!combined.some((existing) => existing.title === item.title)) {
+        combined.push(item);
+      }
+    }
+
     return combined.slice(0, 4);
   }
 
