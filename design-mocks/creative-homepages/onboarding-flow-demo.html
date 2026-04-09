@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Onboarding Flow Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #f7e9d7 100%);
+      color: #23223a;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(34, 34, 34, 0.18);
+      z-index: 0;
+    }
+    .onboarding-modal, .dashboard-container {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 48px #eab67655;
+      border: 2.5px solid #eab67688;
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      max-width: 420px;
+      width: 100%;
+      z-index: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: popin 0.4s cubic-bezier(.6,-0.28,.74,.05);
+    }
+    .dashboard-container {
+      max-width: 900px;
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      display: none;
+      align-items: center;
+    }
+    @keyframes popin {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .onboarding-title, .dashboard-title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+    }
+    .onboarding-desc, .dashboard-welcome {
+      font-size: 1.1rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 340px;
+    }
+    .onboarding-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .onboarding-label {
+      font-weight: 700;
+      color: #b77b2b;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+    .onboarding-input, .onboarding-select {
+      padding: 0.8rem 1rem;
+      border-radius: 0.7rem;
+      border: 2px solid #eab67688;
+      font-size: 1rem;
+      background: #fff8e1;
+      color: #23223a;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .onboarding-input:focus, .onboarding-select:focus {
+      border: 2px solid #b77b2b;
+    }
+    .onboarding-btn {
+      margin-top: 2rem;
+      background: linear-gradient(90deg, #eab676 0%, #b77b2b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #eab67644;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    .onboarding-btn:hover {
+      background: linear-gradient(90deg, #b77b2b 0%, #eab676 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #eab67644;
+    }
+    .dashboard-title {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+    }
+    .dashboard-welcome {
+      margin-bottom: 2.2rem;
+      max-width: 600px;
+    }
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 2rem 2rem;
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+    .dashboard-card {
+      background: #fff8e1;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px #eab67644;
+      border: 2px solid #eab67655;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .dashboard-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #b77b2b;
+      margin-bottom: 0.5rem;
+    }
+    .dashboard-card-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+    }
+    @media (max-width: 900px) {
+      .dashboard-cards { grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="modal-bg"></div>
+  <div class="onboarding-modal" id="step1">
+    <div class="onboarding-title">Let's Get Started</div>
+    <div class="onboarding-desc">Tell us a bit about yourself to personalize your experience. You can update these details later.</div>
+    <form class="onboarding-form" id="onboardingForm">
+      <div>
+        <label class="onboarding-label" for="college">College/University</label>
+        <input class="onboarding-input" type="text" id="college" name="college" placeholder="e.g. Delhi University" required>
+      </div>
+      <div>
+        <label class="onboarding-label" for="location">Location</label>
+        <input class="onboarding-input" type="text" id="location" name="location" placeholder="e.g. New Delhi" required>
+      </div>
+      <div>
+        <label class="onboarding-label" for="culture">Cultural Background</label>
+        <select class="onboarding-select" id="culture" name="culture" required>
+          <option value="">Select...</option>
+          <option value="hindi">Hindi</option>
+          <option value="bengali">Bengali</option>
+          <option value="punjabi">Punjabi</option>
+          <option value="tamil">Tamil</option>
+          <option value="telugu">Telugu</option>
+          <option value="marathi">Marathi</option>
+          <option value="gujarati">Gujarati</option>
+          <option value="malayali">Malayali</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button class="onboarding-btn" type="submit">Continue</button>
+    </form>
+  </div>
+  <div class="dashboard-container" id="step2">
+    <div class="dashboard-title" id="dashboardTitle">Welcome!</div>
+    <div class="dashboard-welcome" id="dashboardWelcome">Here’s your personalized dashboard. All resources, events, and communities are tailored for your college, location, and culture.</div>
+    <div class="dashboard-cards">
+      <div class="dashboard-card">
+        <div class="dashboard-card-title">Upcoming Events</div>
+        <div class="dashboard-card-desc" id="eventsCard">Holi Festival · April 10<br>Poetry Night · April 15</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="dashboard-card-title">Community Groups</div>
+        <div class="dashboard-card-desc" id="groupsCard">Literature Club<br>Cultural Society</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="dashboard-card-title">Integration Guides</div>
+        <div class="dashboard-card-desc" id="guidesCard">Student Life Guide<br>Cultural Etiquette</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="dashboard-card-title">Explore More</div>
+        <div class="dashboard-card-desc">Discover other cultures, events, and resources nearby.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('onboardingForm').onsubmit = function(e) {
+      e.preventDefault();
+      var college = document.getElementById('college').value;
+      var location = document.getElementById('location').value;
+      var culture = document.getElementById('culture').options[document.getElementById('culture').selectedIndex].text;
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'flex';
+      document.getElementById('dashboardTitle').innerText = 'Welcome!';
+      document.getElementById('dashboardWelcome').innerHTML = `Here’s your personalized dashboard. All resources, events, and communities are tailored for:<br><b>${college}</b> · <b>${location}</b> · <b>${culture}</b> culture`;
+      // Optionally, you could personalize the cards here as well.
+    };
+  </script>
+</body>
+</html>

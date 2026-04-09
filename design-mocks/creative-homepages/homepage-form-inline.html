@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Home + Inline Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #f7e9d7 100%);
+      color: #23223a;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .home-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .home-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+      letter-spacing: -1px;
+    }
+    .home-tagline {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .home-btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .home-btn {
+      background: linear-gradient(90deg, #eab676 0%, #b77b2b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #eab67644;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    .home-btn:hover {
+      background: linear-gradient(90deg, #b77b2b 0%, #eab676 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #eab67644;
+    }
+    .form-container {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 48px #eab67655;
+      border: 2.5px solid #eab67688;
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      max-width: 600px;
+      width: 100%;
+      margin: 3rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: popin 0.4s cubic-bezier(.6,-0.28,.74,.05);
+    }
+    @keyframes popin {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .form-section {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .form-section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #b77b2b;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .form-label {
+      font-weight: 600;
+      color: #23223a;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      display: block;
+    }
+    .form-input, .form-select {
+      padding: 0.8rem 1rem;
+      border-radius: 0.7rem;
+      border: 2px solid #eab67688;
+      font-size: 1rem;
+      background: #fff8e1;
+      color: #23223a;
+      outline: none;
+      transition: border 0.2s;
+      margin-bottom: 0.7rem;
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus {
+      border: 2px solid #b77b2b;
+    }
+    .form-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .form-chip {
+      background: #eab67622;
+      color: #b77b2b;
+      border-radius: 1rem;
+      padding: 0.3rem 1rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1.5px solid #eab67688;
+    }
+    .form-chip-remove {
+      cursor: pointer;
+      color: #b77b2b;
+      font-weight: bold;
+      margin-left: 0.3rem;
+    }
+    .form-checkbox-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 0.7rem;
+    }
+    .form-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 1rem;
+      color: #23223a;
+      font-weight: 500;
+    }
+    .form-checkbox {
+      accent-color: #eab676;
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+    .form-btn {
+      margin-top: 2rem;
+      background: linear-gradient(90deg, #eab676 0%, #b77b2b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #eab67644;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    .form-btn:hover {
+      background: linear-gradient(90deg, #b77b2b 0%, #eab676 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #eab67644;
+    }
+    @media (max-width: 700px) {
+      .home-title { font-size: 2rem; }
+      .form-container { padding: 1rem 0.2rem 1rem 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="home-container">
+    <div class="home-title">Welcome to Culture Continuity</div>
+    <div class="home-tagline">Preserve your cultural identity, find your community, and celebrate your heritage in new cities and universities. Start your journey to cultural connection and understanding here.</div>
+    <div class="home-btns">
+      <button class="home-btn" onclick="scrollToForm()">Preserve My Culture</button>
+      <button class="home-btn" onclick="scrollToForm()">Explore Local Cultures</button>
+    </div>
+    <form class="form-container" id="detailedForm" autocomplete="off">
+      <div class="form-title">Tell Us About Yourself</div>
+      <div class="form-section">
+        <div class="form-section-title">📍 Destination</div>
+        <label class="form-label" for="city">City *</label>
+        <input class="form-input" type="text" id="city" name="city" required>
+        <label class="form-label" for="country">Country *</label>
+        <input class="form-input" type="text" id="country" name="country" required>
+        <label class="form-label" for="university">University (Optional)</label>
+        <input class="form-input" type="text" id="university" name="university">
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">🌐 Cultural Background</div>
+        <label class="form-label" for="languages">Languages</label>
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <input class="form-input" type="text" id="languagesInput" placeholder="e.g., Hindi, Mandarin">
+          <button type="button" onclick="addChip('languagesInput','languagesChips')">Add</button>
+        </div>
+        <div class="form-chip-list" id="languagesChips"></div>
+        <label class="form-label" for="religion">Religion / Spiritual Practice</label>
+        <select class="form-select" id="religion" name="religion">
+          <option value="">Select...</option>
+          <option>Hinduism</option>
+          <option>Islam</option>
+          <option>Christianity</option>
+          <option>Sikhism</option>
+          <option>Buddhism</option>
+          <option>Jainism</option>
+          <option>Judaism</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">🍲 Food Preferences</div>
+        <div class="form-checkbox-list">
+          <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Vegetarian">Vegetarian</label>
+          <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Vegan">Vegan</label>
+          <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Halal">Halal</label>
+          <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Kosher">Kosher</label>
+          <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Regional Cuisine">Regional Cuisine</label>
+          <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Organic">Organic</label>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">🎉 Festivals & Celebrations</div>
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <input class="form-input" type="text" id="festivalsInput" placeholder="e.g., Diwali, Eid, Christmas">
+          <button type="button" onclick="addChip('festivalsInput','festivalsChips')">Add</button>
+        </div>
+        <div class="form-chip-list" id="festivalsChips"></div>
+      </div>
+      <div class="form-section">
+        <div class="form-section-title">🪢 Cultural & Community Identifiers</div>
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <input class="form-input" type="text" id="identifiersInput" placeholder="e.g., North Indian, Tamil Brahmin">
+          <button type="button" onclick="addChip('identifiersInput','identifiersChips')">Add</button>
+        </div>
+        <div class="form-chip-list" id="identifiersChips"></div>
+      </div>
+      <button class="form-btn" type="submit">Continue</button>
+    </form>
+  </div>
+  <script>
+    function scrollToForm() {
+      document.querySelector('.form-container').scrollIntoView({behavior:'smooth'});
+    }
+    function addChip(inputId, chipsId) {
+      var input = document.getElementById(inputId);
+      var chips = document.getElementById(chipsId);
+      var value = input.value.trim();
+      if (!value) return;
+      var chip = document.createElement('span');
+      chip.className = 'form-chip';
+      chip.innerHTML = value + '<span class="form-chip-remove" onclick="this.parentElement.remove()">×</span>';
+      chips.appendChild(chip);
+      input.value = '';
+    }
+    document.getElementById('detailedForm').onsubmit = function(e) {
+      e.preventDefault();
+      alert('Thank you! Your preferences have been saved.');
+    };
+  </script>
+</body>
+</html>

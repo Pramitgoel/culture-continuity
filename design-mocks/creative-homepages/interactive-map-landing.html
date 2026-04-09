@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Interactive Map Landing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #e0e7ff 0%, #a1c4fd 100%);
+      color: #23223a;
+      overflow-x: hidden;
+    }
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1.2rem 2.5rem 0.5rem 2.5rem;
+      background: transparent;
+      font-weight: 700;
+      font-size: 1.1rem;
+      gap: 2.5rem;
+    }
+    .nav-logo {
+      margin-right: auto;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      letter-spacing: -1px;
+    }
+    .nav-link {
+      color: #3b0ca3;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: #4895ef;
+    }
+    .map-hero {
+      position: relative;
+      width: 100vw;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+    .map-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      width: 100vw;
+      height: 100%;
+      background: linear-gradient(120deg, #e0e7ff 0%, #a1c4fd 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-svg {
+      width: 80vw;
+      max-width: 700px;
+      height: auto;
+      opacity: 0.7;
+      filter: blur(0.5px) drop-shadow(0 4px 24px #4895ef33);
+    }
+    .map-overlay {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 2.5rem;
+    }
+    .welcome {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #fff8;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 2rem;
+      box-shadow: 0 2px 12px #4895ef22;
+      padding: 0.5rem 1.2rem;
+      margin-bottom: 2.2rem;
+      max-width: 420px;
+      width: 100%;
+      gap: 0.7rem;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      flex: 1;
+      background: transparent;
+      color: #23223a;
+      padding: 0.7rem 0.5rem;
+    }
+    .search-bar button {
+      background: #4895ef;
+      color: #fff;
+      border: none;
+      border-radius: 1.2rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #4895ef44;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .search-bar button:hover {
+      background: #3b0ca3;
+      color: #fff;
+    }
+    .feature-cards {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .feature-card {
+      background: linear-gradient(120deg, #e0e7ff 60%, #fff 100%);
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px #4895ef22;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      min-width: 170px;
+      max-width: 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 6px 24px #4895ef33;
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+      color: #4895ef;
+    }
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3b0ca3;
+      margin-bottom: 0.5rem;
+    }
+    .feature-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+    }
+    @media (max-width: 900px) {
+      .map-svg { width: 98vw; max-width: 98vw; }
+      .feature-cards { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-logo">🌏 Culture Continuity</div>
+    <a class="nav-link" href="#">Home</a>
+    <a class="nav-link" href="#">Preserve</a>
+    <a class="nav-link" href="#">Explore</a>
+    <a class="nav-link" href="#">Events</a>
+  </nav>
+  <div class="map-hero">
+    <div class="map-bg">
+      <!-- Abstract SVG map -->
+      <svg class="map-svg" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="400" cy="200" rx="350" ry="150" fill="#4895ef" fill-opacity="0.13"/>
+        <ellipse cx="400" cy="200" rx="250" ry="100" fill="#3b0ca3" fill-opacity="0.09"/>
+        <ellipse cx="400" cy="200" rx="180" ry="70" fill="#fff" fill-opacity="0.7"/>
+        <ellipse cx="400" cy="200" rx="120" ry="40" fill="#4895ef" fill-opacity="0.18"/>
+      </svg>
+    </div>
+    <div class="map-overlay">
+      <div class="welcome">Welcome to Culture Continuity</div>
+      <form class="search-bar" onsubmit="return false;">
+        <input type="text" placeholder="Where are you moving? (City, Country...)" />
+        <button type="submit">Search</button>
+      </form>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-title">Preserve Your Culture</div>
+          <div class="feature-desc">Connect with communities, events, and spaces that help you stay rooted in your traditions.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌏</div>
+          <div class="feature-title">Explore Local Cultures</div>
+          <div class="feature-desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <div class="feature-title">Meaningful Connections</div>
+          <div class="feature-desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎉</div>
+          <div class="feature-title">Events & Festivals</div>
+          <div class="feature-desc">Never miss a celebration! Find festivals, gatherings, and cultural events near you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

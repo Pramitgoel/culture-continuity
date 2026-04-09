@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Vertical Timeline Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      color: #23223a;
+      min-height: 100vh;
+    }
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1.2rem 2.5rem 0.5rem 2.5rem;
+      background: transparent;
+      font-weight: 700;
+      font-size: 1.1rem;
+      gap: 2.5rem;
+    }
+    .nav-logo {
+      margin-right: auto;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      letter-spacing: -1px;
+    }
+    .nav-link {
+      color: #3b0ca3;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: #4895ef;
+    }
+    .main-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 3.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 0 1rem;
+      min-height: 80vh;
+    }
+    .welcome {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      min-width: 260px;
+      max-width: 340px;
+      margin-top: 2.5rem;
+    }
+    .welcome-box {
+      background: linear-gradient(120deg, #e0e7ff 60%, #fff 100%);
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px #4895ef22;
+      padding: 1.5rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .welcome-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #3b0ca3;
+      margin-bottom: 1rem;
+    }
+    .welcome-desc {
+      font-size: 1rem;
+      color: #23223a;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+    .journey {
+      flex: 2.2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      min-width: 320px;
+      max-width: 520px;
+      margin-top: 0.5rem;
+    }
+    .timeline {
+      position: relative;
+      margin-left: 2.5rem;
+      padding-left: 2.5rem;
+      border-left: 4px solid #4895ef44;
+      min-height: 420px;
+    }
+    .timeline-step {
+      position: relative;
+      margin-bottom: 3.2rem;
+      padding-left: 0.5rem;
+    }
+    .timeline-step:last-child { margin-bottom: 0; }
+    .timeline-icon {
+      position: absolute;
+      left: -2.7rem;
+      top: 0.1rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      background: #4895ef;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px #4895ef33;
+      border: 3px solid #fff;
+    }
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3b0ca3;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+    }
+    .start-btn {
+      margin-top: 2.5rem;
+      background: #4895ef;
+      color: #fff;
+      border: none;
+      border-radius: 0.8rem;
+      padding: 1rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #4895ef44;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .start-btn:hover {
+      background: #3b0ca3;
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #3b0ca344;
+    }
+    @media (max-width: 900px) {
+      .main-content { flex-direction: column; gap: 1.5rem; align-items: center; }
+      .welcome, .journey { min-width: 0; max-width: 100%; align-items: stretch; }
+      .timeline { margin-left: 0.5rem; padding-left: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-logo">🌏 Culture Continuity</div>
+    <a class="nav-link" href="#">Home</a>
+    <a class="nav-link" href="#">Preserve</a>
+    <a class="nav-link" href="#">Explore</a>
+    <a class="nav-link" href="#">Events</a>
+  </nav>
+  <div class="main-content">
+    <div class="welcome">
+      <div class="welcome-box">
+        <div class="welcome-title">Welcome to Culture Continuity</div>
+        <div class="welcome-desc">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+      </div>
+    </div>
+    <div class="journey">
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-icon">📝</div>
+          <div class="timeline-title">Enter Your Details</div>
+          <div class="timeline-desc">Tell us your destination, languages, religion, and cultural interests.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-icon">🛡️</div>
+          <div class="timeline-title">Preserve Your Culture</div>
+          <div class="timeline-desc">Discover communities, events, and spaces to stay connected with your heritage.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-icon">🌏</div>
+          <div class="timeline-title">Explore Local Cultures</div>
+          <div class="timeline-desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-icon">🤝</div>
+          <div class="timeline-title">Make Connections</div>
+          <div class="timeline-desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+        </div>
+      </div>
+      <button class="start-btn">Start Your Journey</button>
+    </div>
+  </div>
+</body>
+</html>

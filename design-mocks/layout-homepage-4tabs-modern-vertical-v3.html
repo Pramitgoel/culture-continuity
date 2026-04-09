@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Modern Vertical Layout v3</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      margin: 0;
+      color: #23223a;
+    }
+    .header {
+      background: linear-gradient(90deg, #3b0ca3 0%, #4895ef 100%);
+      color: #fff;
+      padding: 1.2rem 0 0.7rem 0;
+      text-align: center;
+      border-radius: 0 0 1.2rem 1.2rem;
+      box-shadow: 0 2px 12px #3b0ca344;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .site-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin: 0;
+      text-shadow: 0 2px 8px #0002;
+      text-align: left;
+      flex: 1;
+    }
+    .site-subtitle {
+      display: none;
+    }
+    .tabs {
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      flex: 1.5;
+      justify-content: flex-end;
+    }
+    .tab {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      border-radius: 1.2rem 1.2rem 0 0;
+      background: #fff;
+      color: #3b0ca3;
+      border: none;
+      box-shadow: 0 2px 8px #3b0ca322;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-bottom: -0.7rem;
+      outline: none;
+      border-top: 3px solid transparent;
+    }
+    .tab.active, .tab:hover {
+      background: #3b0ca3;
+      color: #fff;
+      box-shadow: 0 4px 16px #3b0ca344;
+      border-top: 3px solid #4895ef;
+    }
+    .main-content-vertical {
+      max-width: 1100px;
+      margin: 3rem auto 0 auto;
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 500px;
+    }
+    .welcome-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      flex: 1.2;
+      min-width: 320px;
+      max-width: 420px;
+    }
+    .welcome-box {
+      background: linear-gradient(120deg, #e0e7ff 60%, #fff 100%);
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 16px #4895ef22;
+      padding: 2.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .welcome-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #3b0ca3;
+      margin-bottom: 1rem;
+    }
+    .welcome-desc {
+      font-size: 1rem;
+      color: #23223a;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    .welcome-actions {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+    .welcome-btn {
+      background: #4895ef;
+      color: #fff;
+      border: none;
+      border-radius: 0.7rem;
+      padding: 0.8rem 1.7rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #4895ef44;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .welcome-btn.secondary {
+      background: #fff;
+      color: #3b0ca3;
+      border: 2px solid #3b0ca3;
+    }
+    .welcome-btn:hover {
+      background: #3b0ca3;
+      color: #fff;
+      box-shadow: 0 4px 16px #3b0ca344;
+    }
+    .how-to-box {
+      background: #f7f7fa;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px #3b0ca311;
+      padding: 1.5rem 1.2rem;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+    .how-to-title {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #3b0ca3;
+      margin-bottom: 1rem;
+    }
+    .how-to-steps {
+      list-style: decimal inside;
+      color: #444;
+      font-size: 0.97rem;
+      line-height: 1.7;
+      padding-left: 0;
+      margin: 0;
+    }
+    .info-box {
+      flex: 1.8;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 16px #4895ef22;
+      padding: 2.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      min-width: 340px;
+    }
+    .features-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .feature-card {
+      flex: 1 1 180px;
+      max-width: 210px;
+      background: linear-gradient(120deg, #e0e7ff 60%, #fff 100%);
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px #4895ef22;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 150px;
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+      color: #4895ef;
+    }
+    .feature-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #3b0ca3;
+      margin-bottom: 0.5rem;
+    }
+    .feature-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+    }
+    @media (max-width: 1100px) {
+      .main-content-vertical { flex-direction: column; gap: 2rem; align-items: stretch; }
+      .welcome-col, .info-box { max-width: 100%; min-width: 0; }
+      .features-row { flex-direction: row; }
+      .header-content { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      .tabs { justify-content: flex-start; }
+    }
+    @media (max-width: 700px) {
+      .main-content-vertical { padding: 1.2rem 0.5rem; }
+      .welcome-col, .info-box { padding: 1.2rem 0.7rem; }
+      .features-row { gap: 1rem; }
+      .header-content { padding: 0 0.5rem; }
+      .site-title { font-size: 1.3rem; }
+      .tab { padding: 0.5rem 0.7rem; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="site-title">Culture Continuity</div>
+      <div class="tabs">
+        <button class="tab active">Home</button>
+        <button class="tab">📝 Enter Details</button>
+        <button class="tab">🛡️ Preserve My Culture</button>
+        <button class="tab">🌏 Explore Local Cultures</button>
+      </div>
+    </div>
+  </div>
+  <div class="main-content-vertical">
+    <div class="welcome-col">
+      <div class="welcome-box">
+        <div class="welcome-title">Welcome to Culture Continuity</div>
+        <div class="welcome-desc">
+          Find your community, celebrate your heritage, and discover the world around you.<br>
+          Your journey to cultural connection and understanding starts here.
+        </div>
+        <div class="welcome-actions">
+          <button class="welcome-btn">📝 Get Started</button>
+          <button class="welcome-btn secondary">🌏 Explore Features</button>
+        </div>
+      </div>
+      <div class="how-to-box">
+        <div class="how-to-title">How to Use:</div>
+        <ol class="how-to-steps">
+          <li><strong>Enter your details:</strong> Tell us your destination, languages, religion, and cultural interests.</li>
+          <li><strong>Preserve your culture:</strong> Discover communities, events, and spaces to stay connected with your heritage.</li>
+          <li><strong>Explore local cultures:</strong> Learn about the cultural landscape, compare values, and find integration guides for your new home.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="features-row">
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-title">Preserve Your Culture</div>
+          <div class="feature-desc">Connect with communities, events, and spaces that help you stay rooted in your traditions.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌏</div>
+          <div class="feature-title">Explore Local Cultures</div>
+          <div class="feature-desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <div class="feature-title">Meaningful Connections</div>
+          <div class="feature-desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎉</div>
+          <div class="feature-title">Events & Festivals</div>
+          <div class="feature-desc">Never miss a celebration! Find festivals, gatherings, and cultural events near you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

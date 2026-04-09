@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option 2: Multi-Step Form with Tabs</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f7f7fa; margin: 0; }
+    .center { display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+    .card { background: #fff; border-radius: 1rem; box-shadow: 0 2px 16px #0002; padding: 2.5rem 2rem; max-width: 400px; width: 100%; margin: 2rem 0; }
+    .stepper { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+    .step { flex: 1; height: 6px; border-radius: 3px; background: #e0e7ff; }
+    .step.active { background: #3b0ca3; }
+    .form-group { margin-bottom: 1.5rem; }
+    label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+    input, select { width: 100%; padding: 0.7rem; border-radius: 0.4rem; border: 1px solid #bbb; }
+    .actions { display: flex; justify-content: space-between; gap: 1rem; }
+    button { padding: 0.7rem 1.5rem; border-radius: 0.4rem; border: none; background: #3b0ca3; color: #fff; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    button:disabled { background: #bbb; cursor: not-allowed; }
+    .tabs { display: flex; border-bottom: 2px solid #ddd; background: #fff; margin-top: 2rem; }
+    .tab { flex: 1; padding: 1.2rem; text-align: center; cursor: pointer; font-weight: 600; color: #555; border: none; background: none; transition: background 0.2s; }
+    .tab.active { color: #3b0ca3; border-bottom: 3px solid #3b0ca3; background: #f0f0ff; }
+    .content { padding: 2rem; background: #fff; max-width: 600px; border-radius: 1rem; box-shadow: 0 2px 8px #0001; margin: 2rem auto; }
+    .summary-bar { background: #e0e7ff; padding: 1rem; border-radius: 0.5rem; margin: 2rem auto 0 auto; max-width: 600px; display: flex; gap: 1.5rem; align-items: center; justify-content: space-between; }
+    .summary-bar .info { color: #333; }
+    .summary-bar button { background: #3b0ca3; color: #fff; border: none; border-radius: 0.3rem; padding: 0.5rem 1rem; font-weight: 600; }
+    @media (max-width: 700px) { .content, .summary-bar { padding: 1rem; margin: 1rem; } .card { padding: 1.5rem 0.7rem; } }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <!-- Step 1: Destination -->
+    <div class="card">
+      <div class="stepper">
+        <div class="step active"></div>
+        <div class="step"></div>
+        <div class="step"></div>
+      </div>
+      <h2>Step 1 of 3: Destination</h2>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input id="city" placeholder="e.g. Boston" />
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input id="country" placeholder="e.g. USA" />
+      </div>
+      <div class="form-group">
+        <label for="university">University (optional)</label>
+        <input id="university" placeholder="e.g. Harvard" />
+      </div>
+      <div class="actions">
+        <span></span>
+        <button>Next</button>
+      </div>
+    </div>
+    <!-- After Finish: Tabs + Summary -->
+    <div class="summary-bar">
+      <div class="info">
+        <strong>Boston, USA</strong> | <span>Culture: Indian</span> | <span>Engagement: Deep</span>
+      </div>
+      <button>Edit Info</button>
+    </div>
+    <div class="tabs">
+      <button class="tab active">Preserve My Culture</button>
+      <button class="tab">Cultural Understanding</button>
+    </div>
+    <div class="content">
+      <h2>Preserve My Culture</h2>
+      <ul>
+        <li>Communities & Organizations</li>
+        <li>Spaces & Resources</li>
+        <li>Events & Calendar</li>
+      </ul>
+      <p style="color:#888">(Switch tabs above to view Cultural Understanding features)</p>
+    </div>
+  </div>
+</body>
+</html>

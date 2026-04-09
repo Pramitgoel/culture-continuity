@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Pastel 4 Tabs</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #fdf6f0 0%, #e0f7fa 100%);
+      margin: 0;
+      color: #2d2d2d;
+    }
+    .header {
+      background: linear-gradient(90deg, #f7b267 0%, #70c1b3 100%);
+      color: #fff;
+      padding: 2.5rem 0 1.5rem 0;
+      text-align: center;
+      border-radius: 0 0 2.5rem 2.5rem;
+      box-shadow: 0 4px 24px #70c1b344;
+      position: relative;
+    }
+    .site-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 12px #f7b26744;
+    }
+    .site-subtitle {
+      font-size: 1.3rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 1px 6px #70c1b344;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .tab {
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 1rem 2.2rem;
+      border-radius: 1.5rem 1.5rem 0 0;
+      background: #fff7ee;
+      color: #f7b267;
+      border: none;
+      box-shadow: 0 2px 8px #70c1b322;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-bottom: -1.5rem;
+      outline: none;
+      border-top: 3px solid transparent;
+    }
+    .tab.active, .tab:hover {
+      background: #70c1b3;
+      color: #fff;
+      box-shadow: 0 4px 16px #f7b26744;
+      border-top: 3px solid #f7b267;
+    }
+    .main-content {
+      max-width: 800px;
+      margin: 4.5rem auto 0 auto;
+      background: #fff7ee;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 16px #70c1b322;
+      padding: 2.5rem 2rem 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-img {
+      width: 120px;
+      margin: 2rem auto 1.5rem auto;
+      display: block;
+      filter: drop-shadow(0 2px 8px #70c1b344);
+    }
+    .purpose {
+      font-size: 1.25rem;
+      color: #f7b267;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .how-to {
+      text-align: left;
+      margin: 2.5rem auto 0 auto;
+      max-width: 520px;
+      background: #e0f7fa;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 2px 8px #70c1b322;
+    }
+    .how-to-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #f7b267;
+      margin-bottom: 1rem;
+    }
+    .how-to-steps {
+      list-style: decimal inside;
+      color: #2d2d2d;
+      font-size: 1rem;
+      line-height: 1.7;
+      padding-left: 0;
+      margin: 0;
+    }
+    .tab-content {
+      margin-top: 2.5rem;
+      text-align: left;
+      min-height: 320px;
+    }
+    .input-form {
+      max-width: 420px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px #f7b26722;
+      padding: 2rem 1.5rem;
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: #f7b267; }
+    input, select {
+      width: 100%; padding: 0.7rem; border-radius: 0.4rem; border: 1px solid #bbb;
+      font-size: 1rem; background: #fff;
+    }
+    .submit-btn {
+      width: 100%; padding: 1rem; border-radius: 0.5rem; background: #f7b267;
+      color: #fff; font-size: 1.2rem; font-weight: bold; border: none; margin-top: 1.5rem; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .submit-btn:hover { background: #70c1b3; }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #70c1b3;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .section-content {
+      background: #e0f7fa;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 2px 8px #f7b26722;
+      margin-bottom: 2rem;
+      color: #2d2d2d;
+    }
+    @media (max-width: 700px) {
+      .main-content { padding: 1.2rem 0.5rem; }
+      .how-to { padding: 1.2rem 0.5rem; }
+      .tabs { gap: 0.5rem; }
+      .tab { padding: 0.7rem 1rem; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="site-title">Culture Continuity</div>
+    <div class="site-subtitle">Helping you stay connected to your roots and explore new cultures, wherever you go.</div>
+    <div class="tabs">
+      <button class="tab active">Home</button>
+      <button class="tab">📝 Enter Details</button>
+      <button class="tab">🛡️ Preserve My Culture</button>
+      <button class="tab">🌏 Explore Local Cultures</button>
+    </div>
+  </div>
+  <div class="main-content">
+    <!-- Home Tab Content -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Culture" class="hero-img" />
+    <div class="purpose">
+      Culture Continuity is your companion for finding cultural communities, events, and resources in your new city or campus, while also helping you understand and engage with local cultures.
+    </div>
+    <div class="how-to">
+      <div class="how-to-title">How to Use:</div>
+      <ol class="how-to-steps">
+        <li><strong>Enter your details:</strong> Tell us your destination, languages, religion, and cultural interests.</li>
+        <li><strong>Preserve your culture:</strong> Discover communities, events, and spaces to stay connected with your heritage.</li>
+        <li><strong>Explore local cultures:</strong> Learn about the cultural landscape, compare values, and find integration guides for your new home.</li>
+      </ol>
+    </div>
+    <!-- Example Tab Content (hidden by default, shown on tab click in real app) -->
+    <!--
+    <div class="tab-content">
+      <div class="input-form">
+        <div class="section-title">📝 Enter Your Details</div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input id="city" placeholder="e.g. Boston" />
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input id="country" placeholder="e.g. USA" />
+        </div>
+        <div class="form-group">
+          <label for="university">University</label>
+          <input id="university" placeholder="e.g. Harvard" />
+        </div>
+        <div class="form-group">
+          <label for="languages">Languages</label>
+          <input id="languages" placeholder="e.g. Hindi, English" />
+        </div>
+        <div class="form-group">
+          <label for="religion">Religion</label>
+          <input id="religion" placeholder="e.g. Hindu" />
+        </div>
+        <div class="form-group">
+          <label for="festivals">Festivals</label>
+          <input id="festivals" placeholder="e.g. Diwali, Holi" />
+        </div>
+        <div class="form-group">
+          <label for="engagement">Level of Engagement</label>
+          <select id="engagement">
+            <option>Casual</option>
+            <option>Moderate</option>
+            <option>Deep</option>
+          </select>
+        </div>
+        <button class="submit-btn">Find Cultural Resources</button>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="section-title">🛡️ Preserve My Culture</div>
+      <div class="section-content">
+        <ul>
+          <li>Communities & Organizations</li>
+          <li>Spaces & Resources</li>
+          <li>Events & Calendar</li>
+          <li>Suggested Weekly Routine</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="section-title">🌏 Explore Local Cultures</div>
+      <div class="section-content">
+        <ul>
+          <li>Cultural Landscape & Profiles</li>
+          <li>Comparisons & Integration Guides</li>
+        </ul>
+      </div>
+    </div>
+    -->
+  </div>
+</body>
+</html>

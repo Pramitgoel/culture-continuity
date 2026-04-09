@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Paper Cutout Collage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #f8fafc 0%, #f7e9d7 100%);
+      color: #23223a;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .collage-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .collage-bg svg {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .collage-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+      letter-spacing: -1px;
+    }
+    .collage-tagline {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .collage-btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .collage-btn {
+      background: linear-gradient(90deg, #eab676 0%, #b77b2b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #eab67644;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    .collage-btn:hover {
+      background: linear-gradient(90deg, #b77b2b 0%, #eab676 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #eab67644;
+    }
+    .collage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 2.2rem 2.2rem;
+      margin: 0 auto;
+      max-width: 520px;
+      margin-top: 2.5rem;
+    }
+    .collage-card {
+      background: rgba(255,255,255,0.7);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 32px 0 #eab67655, 0 0 16px #b77b2b44;
+      border: 2.5px solid #eab67688;
+      padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .collage-card:hover {
+      box-shadow: 0 0 48px 0 #eab676aa, 0 0 32px #b77b2bcc;
+      transform: translateY(-4px) scale(1.06) rotate(-2deg);
+      border: 2.5px solid #b77b2bcc;
+    }
+    .collage-icon {
+      font-size: 2.7rem;
+      margin-bottom: 0.7rem;
+      color: #b77b2b;
+      filter: drop-shadow(0 2px 8px #eab676cc);
+    }
+    .collage-title-card {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #b77b2b;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 8px #eab67688;
+    }
+    .collage-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    @media (max-width: 700px) {
+      .collage-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .main-content { padding: 2rem 0.2rem 1rem 0.2rem; }
+      .collage-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="collage-bg">
+    <svg viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <g>
+        <ellipse cx="300" cy="200" rx="180" ry="80" fill="#eab676" fill-opacity="0.18">
+          <animate attributeName="cy" values="200;220;200" dur="7s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="1600" cy="300" rx="120" ry="60" fill="#b77b2b" fill-opacity="0.13">
+          <animate attributeName="cy" values="300;320;300" dur="9s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="900" cy="800" rx="200" ry="90" fill="#eab676" fill-opacity="0.13">
+          <animate attributeName="cy" values="800;820;800" dur="11s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="1400" cy="900" rx="90" ry="40" fill="#b77b2b" fill-opacity="0.18">
+          <animate attributeName="cy" values="900;920;900" dur="8s" repeatCount="indefinite"/>
+        </ellipse>
+      </g>
+      <!-- Paper cutout people -->
+      <g>
+        <circle cx="400" cy="400" r="38" fill="#eab676"/>
+        <rect x="370" y="438" width="60" height="90" rx="30" fill="#b77b2b"/>
+        <ellipse cx="400" cy="530" rx="38" ry="18" fill="#eab676"/>
+        <circle cx="1550" cy="500" r="38" fill="#b77b2b"/>
+        <rect x="1520" y="538" width="60" height="90" rx="30" fill="#eab676"/>
+        <ellipse cx="1550" cy="630" rx="38" ry="18" fill="#b77b2b"/>
+      </g>
+      <!-- Monument shapes -->
+      <g>
+        <rect x="900" y="200" width="40" height="120" rx="20" fill="#b77b2b"/>
+        <ellipse cx="920" cy="200" rx="20" ry="18" fill="#eab676"/>
+      </g>
+    </svg>
+  </div>
+  <div class="main-content">
+    <div class="collage-title">Welcome to Culture Continuity</div>
+    <div class="collage-tagline">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+    <div class="collage-btns">
+      <button class="collage-btn">🛡️ Preserve My Culture</button>
+      <button class="collage-btn">🌏 Explore Local Cultures</button>
+    </div>
+    <div class="collage-grid">
+      <div class="collage-card">
+        <div class="collage-icon">🛡️</div>
+        <div class="collage-title-card">Preserve Your Culture</div>
+        <div class="collage-desc">Connect with communities, events, and spaces that help you stay rooted in your traditions.</div>
+      </div>
+      <div class="collage-card">
+        <div class="collage-icon">🌏</div>
+        <div class="collage-title-card">Explore Local Cultures</div>
+        <div class="collage-desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+      </div>
+      <div class="collage-card">
+        <div class="collage-icon">🤝</div>
+        <div class="collage-title-card">Meaningful Connections</div>
+        <div class="collage-desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+      </div>
+      <div class="collage-card">
+        <div class="collage-icon">🎉</div>
+        <div class="collage-title-card">Events & Festivals</div>
+        <div class="collage-desc">Never miss a celebration! Find festivals, gatherings, and cultural events near you.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

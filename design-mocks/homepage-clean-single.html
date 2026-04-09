@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Modern Homepage</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      margin: 0;
+      color: #23223a;
+    }
+    .header {
+      background: linear-gradient(90deg, #3b0ca3 0%, #4895ef 100%);
+      color: #fff;
+      padding: 1.1rem 0 0.7rem 0;
+      text-align: center;
+      border-radius: 0 0 1.2rem 1.2rem;
+      box-shadow: 0 2px 12px #3b0ca344;
+      margin-bottom: 0.5rem;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .site-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin: 0;
+      text-shadow: 0 2px 8px #0002;
+      text-align: left;
+      flex: 1;
+    }
+    .tabs {
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      flex: 1.5;
+      justify-content: flex-end;
+    }
+    .tab {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      border-radius: 1.2rem 1.2rem 0 0;
+      background: #fff;
+      color: #3b0ca3;
+      border: none;
+      box-shadow: 0 2px 8px #3b0ca322;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-bottom: -0.7rem;
+      outline: none;
+      border-top: 3px solid transparent;
+    }
+    .tab.active, .tab:hover {
+      background: #3b0ca3;
+      color: #fff;
+      box-shadow: 0 4px 16px #3b0ca344;
+      border-top: 3px solid #4895ef;
+    }
+    .hero-section {
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      padding: 3.5rem 1rem 2.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 24px #3b0ca322;
+    }
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      margin-bottom: 1.2rem;
+      letter-spacing: -1px;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+      <div class="hero-benefits" style="display: flex; gap: 2.5rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap;">
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <div class="benefit-title">Preserve Your Culture</div>
+          <div class="benefit-desc">Find communities, events, and resources to stay connected to your roots.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌏</div>
+          <div class="benefit-title">Explore Local Cultures</div>
+          <div class="benefit-desc">Learn about your new environment, compare values, and integrate smoothly.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <div class="benefit-title">Build Connections</div>
+          <div class="benefit-desc">Meet people, join groups, and participate in cross-cultural activities.</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button class="hero-btn" onclick="scrollToForm()">Get Started</button>
+      </div>
+    </div>
+  </div>
+      box-shadow: 0 4px 32px #4895ef44;
+      border: 2.5px solid #4895ef22;
+      padding: 2.5rem 2.2rem 2.5rem 2.2rem;
+      max-width: 540px;
+      width: 100%;
+      margin: 0 auto 3.5rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .form-section-title-main {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    /* ...existing form styles... */
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="site-title">Culture Continuity</div>
+      <div class="tabs">
+        <button class="tab active">Home</button>
+        <button class="tab">📝 Enter Details</button>
+        <button class="tab">🛡️ Preserve My Culture</button>
+        <button class="tab">🌏 Explore Local Cultures</button>
+      </div>
+    </div>
+  </div>
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="hero-title">Culture Continuity</div>
+      <div class="hero-subtitle">Preserve your identity. Connect with your community. Discover and celebrate culture wherever you are.</div>
+      <div class="hero-benefits">
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <div class="benefit-title">Preserve Your Culture</div>
+          <div class="benefit-desc">Find communities, events, and resources to stay connected to your roots.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌏</div>
+          <div class="benefit-title">Explore Local Cultures</div>
+          <div class="benefit-desc">Learn about your new environment, compare values, and integrate smoothly.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <div class="benefit-title">Build Connections</div>
+          <div class="benefit-desc">Meet people, join groups, and participate in cross-cultural activities.</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button class="hero-btn" onclick="scrollToForm()">Get Started</button>
+      </div>
+    </div>
+  </div>
+  <div class="form-section-main" id="formSection">
+    <div class="form-section-title-main">Get Started: Tell Us About Yourself</div>
+    <form class="form-card-modern" id="detailedForm" autocomplete="off">
+        <div class="form-title">Tell Us About Yourself</div>
+        <div class="form-section">
+          <div class="form-section-title">📍 Destination</div>
+          <label class="form-label" for="city">City *</label>
+          <input class="form-input" type="text" id="city" name="city" required>
+          <label class="form-label" for="country">Country *</label>
+          <input class="form-input" type="text" id="country" name="country" required>
+          <label class="form-label" for="university">University (Optional)</label>
+          <input class="form-input" type="text" id="university" name="university">
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">🌐 Cultural Background</div>
+          <label class="form-label" for="languages">Languages</label>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input class="form-input" type="text" id="languagesInput" placeholder="e.g., Hindi, Mandarin">
+            <button type="button" onclick="addChip('languagesInput','languagesChips')">Add</button>
+          </div>
+          <div class="form-chip-list" id="languagesChips"></div>
+          <label class="form-label" for="religion">Religion / Spiritual Practice</label>
+          <select class="form-select" id="religion" name="religion">
+            <option value="">Select...</option>
+            <option>Hinduism</option>
+            <option>Islam</option>
+            <option>Christianity</option>
+            <option>Sikhism</option>
+            <option>Buddhism</option>
+            <option>Jainism</option>
+            <option>Judaism</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">🍲 Food Preferences</div>
+          <div class="form-checkbox-list">
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Vegetarian">Vegetarian</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Vegan">Vegan</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Halal">Halal</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Kosher">Kosher</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Regional Cuisine">Regional Cuisine</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Organic">Organic</label>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">🎉 Festivals & Celebrations</div>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input class="form-input" type="text" id="festivalsInput" placeholder="e.g., Diwali, Eid, Christmas">
+            <button type="button" onclick="addChip('festivalsInput','festivalsChips')">Add</button>
+          </div>
+          <div class="form-chip-list" id="festivalsChips"></div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">🪢 Cultural & Community Identifiers</div>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input class="form-input" type="text" id="identifiersInput" placeholder="e.g., North Indian, Tamil Brahmin">
+            <button type="button" onclick="addChip('identifiersInput','identifiersChips')">Add</button>
+          </div>
+          <div class="form-chip-list" id="identifiersChips"></div>
+        </div>
+        <button class="form-btn" type="submit">Continue</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function scrollToForm() {
+      const el = document.getElementById('formSection');
+      if (el) el.scrollIntoView({behavior:'smooth'});
+    }
+    function addChip(inputId, chipsId) {
+      var input = document.getElementById(inputId);
+      var chips = document.getElementById(chipsId);
+      var value = input.value.trim();
+      if (!value) return;
+      var chip = document.createElement('span');
+      chip.className = 'form-chip';
+      chip.innerHTML = value + '<span class="form-chip-remove" onclick="this.parentElement.remove()">×</span>';
+      chips.appendChild(chip);
+      input.value = '';
+    }
+    document.getElementById('detailedForm').onsubmit = function(e) {
+      e.preventDefault();
+      alert('Thank you! Your preferences have been saved.');
+    };
+  </script>
+</body>
+</html>

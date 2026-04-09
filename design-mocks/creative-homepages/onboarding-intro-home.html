@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Welcome Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #f7e9d7 100%);
+      color: #23223a;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .intro-container {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 48px #eab67655;
+      border: 2.5px solid #eab67688;
+      padding: 3rem 2.5rem 2.5rem 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: popin 0.4s cubic-bezier(.6,-0.28,.74,.05);
+    }
+    @keyframes popin {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .intro-title {
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+    }
+    .intro-desc {
+      font-size: 1.15rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      max-width: 340px;
+    }
+    .intro-btn {
+      margin-top: 1.5rem;
+      background: linear-gradient(90deg, #eab676 0%, #b77b2b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #eab67644;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    .intro-btn:hover {
+      background: linear-gradient(90deg, #b77b2b 0%, #eab676 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #eab67644;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-container">
+    <div class="intro-title">Welcome to Culture Continuity</div>
+    <div class="intro-desc">Preserve your cultural identity, find your community, and celebrate your heritage in new cities and universities. Start your journey to cultural connection and understanding here.</div>
+    <button class="intro-btn" onclick="window.location.href='onboarding-detailed-form.html'">Get Started</button>
+  </div>
+</body>
+</html>

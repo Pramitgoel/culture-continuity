@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Navigation Design Mock</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f7f7fa; margin: 0; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar { width: 220px; background: #3b0ca3; color: #fff; display: flex; flex-direction: column; padding: 2rem 1rem; gap: 2rem; }
+    .sidebar .logo { font-size: 1.5rem; font-weight: bold; margin-bottom: 2rem; }
+    .sidebar button { background: none; border: none; color: #fff; font-size: 1.1rem; padding: 0.7rem 1rem; text-align: left; border-radius: 0.5rem; cursor: pointer; margin-bottom: 0.5rem; transition: background 0.2s; }
+    .sidebar button.active, .sidebar button:hover { background: #fff2; }
+    .main { flex: 1; padding: 2rem; }
+    .input-bar { background: #e0e7ff; padding: 1rem; border-radius: 0.5rem; margin-bottom: 2rem; display: flex; gap: 1rem; align-items: center; }
+    .input-bar label { font-weight: 600; }
+    .input-bar input { padding: 0.5rem; border-radius: 0.3rem; border: 1px solid #bbb; }
+    @media (max-width: 700px) { .layout { flex-direction: column; } .sidebar { width: 100%; flex-direction: row; gap: 1rem; padding: 1rem; } .main { padding: 1rem; } }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="logo">Culture Continuity</div>
+      <button class="active">Preserve My Culture</button>
+      <button>Cultural Understanding</button>
+      <button>Edit My Info</button>
+    </nav>
+    <main class="main">
+      <div class="input-bar">
+        <label for="city">City:</label>
+        <input id="city" placeholder="e.g. Boston" />
+        <label for="school">School:</label>
+        <input id="school" placeholder="e.g. Harvard" />
+        <label for="culture">Culture:</label>
+        <input id="culture" placeholder="e.g. Indian" />
+        <button style="padding:0.5rem 1rem; border-radius:0.3rem; background:#3b0ca3; color:#fff; border:none;">Update</button>
+      </div>
+      <h2>Preserve My Culture</h2>
+      <ul>
+        <li>Communities & Organizations</li>
+        <li>Spaces & Resources</li>
+        <li>Events & Calendar</li>
+      </ul>
+      <p style="color:#888">(Switch sections in the sidebar)</p>
+    </main>
+  </div>
+</body>
+</html>

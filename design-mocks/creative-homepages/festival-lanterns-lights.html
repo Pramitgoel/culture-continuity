@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Festival Lanterns & Lights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #f8fafc 0%, #f7e9d7 100%);
+      color: #23223a;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .lanterns {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100vw;
+      height: 180px;
+      z-index: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 3vw;
+      padding-top: 1.5rem;
+      animation: sway 7s ease-in-out infinite alternate;
+    }
+    @keyframes sway {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(18px); }
+    }
+    .lantern {
+      width: 44px;
+      height: 70px;
+      margin: 0 1vw;
+      filter: drop-shadow(0 2px 12px #eab67688);
+      animation: floatlantern 5s infinite alternate;
+    }
+    .lantern1 { animation-delay: 0s; }
+    .lantern2 { animation-delay: 1s; }
+    .lantern3 { animation-delay: 2s; }
+    .lantern4 { animation-delay: 1.5s; }
+    .lantern5 { animation-delay: 0.5s; }
+    @keyframes floatlantern {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-12px); }
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+      letter-spacing: -1px;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .btn {
+      background: linear-gradient(90deg, #eab676 0%, #b77b2b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #eab67644;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #b77b2b 0%, #eab676 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #eab67644;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 2.2rem 2.2rem;
+      margin: 0 auto;
+      max-width: 520px;
+      margin-top: 2.5rem;
+    }
+    .card {
+      background: rgba(255,255,255,0.7);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 32px 0 #eab67655, 0 0 16px #b77b2b44;
+      border: 2.5px solid #eab67688;
+      padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      box-shadow: 0 0 48px 0 #eab676aa, 0 0 32px #b77b2bcc;
+      transform: translateY(-4px) scale(1.06) rotate(-2deg);
+      border: 2.5px solid #b77b2bcc;
+    }
+    .icon {
+      font-size: 2.7rem;
+      margin-bottom: 0.7rem;
+      color: #b77b2b;
+      filter: drop-shadow(0 2px 8px #eab676cc);
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #b77b2b;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 8px #eab67688;
+    }
+    .desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .main-content { padding: 2rem 0.2rem 1rem 0.2rem; }
+      .title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="lanterns">
+    <svg class="lantern lantern1" viewBox="0 0 44 70">
+      <ellipse cx="22" cy="30" rx="18" ry="28" fill="#eab676"/>
+      <ellipse cx="22" cy="30" rx="14" ry="22" fill="#fff8e1"/>
+      <rect x="18" y="8" width="8" height="8" rx="2" fill="#b77b2b"/>
+      <rect x="18" y="54" width="8" height="8" rx="2" fill="#b77b2b"/>
+      <rect x="20" y="62" width="4" height="8" rx="2" fill="#b77b2b"/>
+    </svg>
+    <svg class="lantern lantern2" viewBox="0 0 44 70">
+      <ellipse cx="22" cy="30" rx="18" ry="28" fill="#b77b2b"/>
+      <ellipse cx="22" cy="30" rx="14" ry="22" fill="#fff8e1"/>
+      <rect x="18" y="8" width="8" height="8" rx="2" fill="#eab676"/>
+      <rect x="18" y="54" width="8" height="8" rx="2" fill="#eab676"/>
+      <rect x="20" y="62" width="4" height="8" rx="2" fill="#eab676"/>
+    </svg>
+    <svg class="lantern lantern3" viewBox="0 0 44 70">
+      <ellipse cx="22" cy="30" rx="18" ry="28" fill="#eab676"/>
+      <ellipse cx="22" cy="30" rx="14" ry="22" fill="#fff8e1"/>
+      <rect x="18" y="8" width="8" height="8" rx="2" fill="#b77b2b"/>
+      <rect x="18" y="54" width="8" height="8" rx="2" fill="#b77b2b"/>
+      <rect x="20" y="62" width="4" height="8" rx="2" fill="#b77b2b"/>
+    </svg>
+    <svg class="lantern lantern4" viewBox="0 0 44 70">
+      <ellipse cx="22" cy="30" rx="18" ry="28" fill="#b77b2b"/>
+      <ellipse cx="22" cy="30" rx="14" ry="22" fill="#fff8e1"/>
+      <rect x="18" y="8" width="8" height="8" rx="2" fill="#eab676"/>
+      <rect x="18" y="54" width="8" height="8" rx="2" fill="#eab676"/>
+      <rect x="20" y="62" width="4" height="8" rx="2" fill="#eab676"/>
+    </svg>
+    <svg class="lantern lantern5" viewBox="0 0 44 70">
+      <ellipse cx="22" cy="30" rx="18" ry="28" fill="#eab676"/>
+      <ellipse cx="22" cy="30" rx="14" ry="22" fill="#fff8e1"/>
+      <rect x="18" y="8" width="8" height="8" rx="2" fill="#b77b2b"/>
+      <rect x="18" y="54" width="8" height="8" rx="2" fill="#b77b2b"/>
+      <rect x="20" y="62" width="4" height="8" rx="2" fill="#b77b2b"/>
+    </svg>
+  </div>
+  <div class="main-content">
+    <div class="title">Welcome to Culture Continuity</div>
+    <div class="tagline">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+    <div class="btns">
+      <button class="btn">🛡️ Preserve My Culture</button>
+      <button class="btn">🌏 Explore Local Cultures</button>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <div class="card-title">Preserve Your Culture</div>
+        <div class="desc">Connect with communities, events, and spaces that help you stay rooted in your traditions.</div>
+      </div>
+      <div class="card">
+        <div class="icon">🌏</div>
+        <div class="card-title">Explore Local Cultures</div>
+        <div class="desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <div class="card-title">Meaningful Connections</div>
+        <div class="desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+      </div>
+      <div class="card">
+        <div class="icon">🎉</div>
+        <div class="card-title">Events & Festivals</div>
+        <div class="desc">Never miss a celebration! Find festivals, gatherings, and cultural events near you.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

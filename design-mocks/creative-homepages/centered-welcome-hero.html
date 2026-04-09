@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Centered Welcome Hero</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #f7e9d7 100%);
+      color: #23223a;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .centered-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100vw;
+      padding: 2.5rem 1rem 2rem 1rem;
+      position: relative;
+    }
+    .centered-title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+      letter-spacing: -1px;
+    }
+    .centered-tagline {
+      font-size: 1.3rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .centered-btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .centered-btn {
+      background: linear-gradient(90deg, #eab676 0%, #b77b2b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #eab67644;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    .centered-btn:hover {
+      background: linear-gradient(90deg, #b77b2b 0%, #eab676 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #eab67644;
+    }
+    .centered-icons {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .centered-icon {
+      font-size: 2.7rem;
+      color: #b77b2b;
+      filter: drop-shadow(0 2px 8px #eab676cc);
+      background: #fff8e1;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 2px 16px #eab67644;
+      margin-bottom: 1.2rem;
+      transition: transform 0.2s;
+    }
+    .centered-icon:hover {
+      transform: scale(1.12) rotate(-4deg);
+    }
+    @media (max-width: 700px) {
+      .centered-title { font-size: 2rem; }
+      .centered-tagline { font-size: 1rem; }
+      .centered-icons { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="centered-hero">
+    <div class="centered-title">Welcome to Culture Continuity</div>
+    <div class="centered-tagline">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+    <div class="centered-btns">
+      <button class="centered-btn">🛡️ Preserve My Culture</button>
+      <button class="centered-btn">🌏 Explore Local Cultures</button>
+    </div>
+    <div class="centered-icons">
+      <div class="centered-icon">🛡️</div>
+      <div class="centered-icon">🌏</div>
+      <div class="centered-icon">🤝</div>
+      <div class="centered-icon">🎉</div>
+      <div class="centered-icon">📚</div>
+      <div class="centered-icon">🗺️</div>
+    </div>
+  </div>
+</body>
+</html>

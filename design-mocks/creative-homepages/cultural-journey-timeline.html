@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Cultural Journey Timeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #f7e9d7 100%);
+      color: #23223a;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .timeline-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem 2rem 1rem;
+      min-height: 100vh;
+      position: relative;
+    }
+    .timeline-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+      letter-spacing: -1px;
+    }
+    .timeline-tagline {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .timeline {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, #eab676 0%, #b77b2b 100%);
+      border-radius: 3px;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+    .timeline-event {
+      position: relative;
+      width: 50%;
+      padding: 1.5rem 2.5rem;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+    }
+    .timeline-event.left {
+      left: 0;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .timeline-event.right {
+      left: 50%;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .timeline-event-content {
+      background: #fff8e1;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px #eab67644;
+      padding: 1.2rem 1.5rem;
+      min-width: 220px;
+      max-width: 320px;
+      border: 2px solid #eab67688;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-event-icon {
+      position: absolute;
+      top: 50%;
+      width: 2.7rem;
+      height: 2.7rem;
+      background: #eab676;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 8px #eab67688;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .timeline-event.left .timeline-event-icon {
+      right: -1.7rem;
+    }
+    .timeline-event.right .timeline-event-icon {
+      left: -1.7rem;
+    }
+    .timeline-event-title {
+      font-weight: 700;
+      color: #b77b2b;
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+    .timeline-event-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+    }
+    @media (max-width: 900px) {
+      .timeline-event, .timeline-event.right, .timeline-event.left {
+        width: 100%;
+        left: 0;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .timeline::before {
+        left: 24px;
+        width: 4px;
+      }
+      .timeline-event-icon {
+        left: -1.7rem;
+        right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline-container">
+    <div class="timeline-title">Your Cultural Journey</div>
+    <div class="timeline-tagline">Experience the path of cultural discovery, from finding your roots to celebrating with the world. Each step is a story, each story a connection.</div>
+    <div class="timeline">
+      <div class="timeline-event left">
+        <div class="timeline-event-content">
+          <div class="timeline-event-title">Discover Your Heritage</div>
+          <div class="timeline-event-desc">Start by exploring your cultural background and connecting with your roots.</div>
+        </div>
+        <div class="timeline-event-icon">🧬</div>
+      </div>
+      <div class="timeline-event right">
+        <div class="timeline-event-content">
+          <div class="timeline-event-title">Join Your Community</div>
+          <div class="timeline-event-desc">Find local groups, organizations, and events that celebrate your culture.</div>
+        </div>
+        <div class="timeline-event-icon">🤝</div>
+      </div>
+      <div class="timeline-event left">
+        <div class="timeline-event-content">
+          <div class="timeline-event-title">Share Traditions</div>
+          <div class="timeline-event-desc">Participate in festivals, rituals, and activities that keep traditions alive.</div>
+        </div>
+        <div class="timeline-event-icon">🎉</div>
+      </div>
+      <div class="timeline-event right">
+        <div class="timeline-event-content">
+          <div class="timeline-event-title">Explore Other Cultures</div>
+          <div class="timeline-event-desc">Learn about the diverse cultures around you and build cross-cultural friendships.</div>
+        </div>
+        <div class="timeline-event-icon">🌏</div>
+      </div>
+      <div class="timeline-event left">
+        <div class="timeline-event-content">
+          <div class="timeline-event-title">Celebrate Together</div>
+          <div class="timeline-event-desc">Join in multicultural events and celebrate unity in diversity.</div>
+        </div>
+        <div class="timeline-event-icon">🎊</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Modern Homepage (Fixed)</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      margin: 0;
+      color: #23223a;
+    }
+    .header {
+      background: linear-gradient(90deg, #3b0ca3 0%, #4895ef 100%);
+      color: #fff;
+      padding: 1.1rem 0 0.7rem 0;
+      text-align: center;
+      border-radius: 0 0 1.2rem 1.2rem;
+      box-shadow: 0 2px 12px #3b0ca344;
+      margin-bottom: 0.5rem;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .site-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin: 0;
+      text-shadow: 0 2px 8px #0002;
+      text-align: left;
+      flex: 1;
+    }
+    .tabs {
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      flex: 1.5;
+      justify-content: flex-end;
+    }
+    .tab {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      border-radius: 1.2rem 1.2rem 0 0;
+      background: #fff;
+      color: #3b0ca3;
+      border: none;
+      box-shadow: 0 2px 8px #3b0ca322;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-bottom: -0.7rem;
+      outline: none;
+      border-top: 3px solid transparent;
+    }
+    .tab.active, .tab:hover {
+      background: #3b0ca3;
+      color: #fff;
+      box-shadow: 0 4px 16px #3b0ca344;
+      border-top: 3px solid #4895ef;
+    }
+    .hero-section {
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      padding: 3.5rem 1rem 2.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 24px #3b0ca322;
+    }
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      margin-bottom: 1.2rem;
+      letter-spacing: -1px;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-benefits {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .benefit-card {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px #4895ef22;
+      padding: 1.2rem 1.5rem;
+      min-width: 220px;
+      max-width: 280px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+      margin-bottom: 1.5rem;
+    }
+    .benefit-card:hover {
+      box-shadow: 0 8px 32px #4895ef44;
+      transform: translateY(-4px) scale(1.03);
+    }
+    .benefit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.7rem;
+      color: #4895ef;
+    }
+    .benefit-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #3b0ca3;
+      margin-bottom: 0.5rem;
+    }
+    .benefit-desc {
+      color: #23223a;
+      font-size: 1.05rem;
+      opacity: 0.85;
+      text-align: center;
+    }
+    .hero-actions {
+      margin-top: 2.5rem;
+    }
+    .hero-btn {
+      background: linear-gradient(90deg, #4895ef 0%, #3b0ca3 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #4895ef44;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #4895efcc;
+    }
+    .hero-btn:hover {
+      background: linear-gradient(90deg, #3b0ca3 0%, #4895ef 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #4895ef44;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="site-title">Culture Continuity</div>
+      <div class="tabs">
+        <button class="tab active">Home</button>
+        <button class="tab">📝 Enter Details</button>
+        <button class="tab">🛡️ Preserve My Culture</button>
+        <button class="tab">🌏 Explore Local Cultures</button>
+      </div>
+    </div>
+  </div>
+  <div class="hero-section">
+    <div class="hero-content">
+      <div class="hero-title">Culture Continuity</div>
+      <div class="hero-subtitle">Preserve your identity. Connect with your community. Discover and celebrate culture wherever you are.</div>
+      <div class="hero-benefits">
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <div class="benefit-title">Preserve Your Culture</div>
+          <div class="benefit-desc">Find communities, events, and resources to stay connected to your roots.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌏</div>
+          <div class="benefit-title">Explore Local Cultures</div>
+          <div class="benefit-desc">Learn about your new environment, compare values, and integrate smoothly.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🤝</div>
+          <div class="benefit-title">Build Connections</div>
+          <div class="benefit-desc">Meet people, join groups, and participate in cross-cultural activities.</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button class="hero-btn" onclick="window.location.href='enter-details-form.html'">Get Started</button>
+      </div>
+      <script>
+        function scrollToForm() {
+          const el = document.getElementById('formSection');
+          if (el) el.scrollIntoView({behavior:'smooth'});
+        }
+      </script>
+    </div>
+  </div>
+</body>
+</html>

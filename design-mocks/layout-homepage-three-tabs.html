@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout: Homepage with Three Tabs</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f7f7fa; margin: 0; }
+    .container { max-width: 800px; margin: 3rem auto; background: #fff; border-radius: 1.2rem; box-shadow: 0 2px 16px #0002; padding: 2.5rem 2rem; }
+    .tabs { display: flex; border-bottom: 2px solid #ddd; margin-bottom: 2rem; }
+    .tab { flex: 1; padding: 1.2rem; text-align: center; cursor: pointer; font-weight: 600; color: #555; border: none; background: none; transition: background 0.2s; border-radius: 1rem 1rem 0 0; }
+    .tab.active { color: #3b0ca3; border-bottom: 3px solid #3b0ca3; background: #f0f0ff; }
+    .tab:not(.active):hover { background: #f7f7fa; }
+    .tab-content { min-height: 320px; padding: 2rem 0; }
+    .form-group { margin-bottom: 1.5rem; }
+    label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+    input, select { width: 100%; padding: 0.7rem; border-radius: 0.4rem; border: 1px solid #bbb; }
+    .submit-btn { width: 100%; padding: 1rem; border-radius: 0.5rem; background: #3b0ca3; color: #fff; font-size: 1.2rem; font-weight: bold; border: none; margin-top: 1.5rem; cursor: pointer; }
+    .summary { background: #f0f0ff; padding: 1rem; border-radius: 0.5rem; color: #333; margin-bottom: 2rem; }
+    @media (max-width: 700px) { .container { padding: 1.2rem 0.5rem; } .tab-content { padding: 1rem 0; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active">1. Enter Info</button>
+      <button class="tab">2. 🛡️ Preserve My Culture</button>
+      <button class="tab">3. 🌏 Explore Local Cultures</button>
+    </div>
+    <div class="tab-content">
+      <!-- Tab 1: Input Form -->
+      <div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input id="city" placeholder="e.g. Boston" />
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input id="country" placeholder="e.g. USA" />
+        </div>
+        <div class="form-group">
+          <label for="university">University</label>
+          <input id="university" placeholder="e.g. Harvard" />
+        </div>
+        <div class="form-group">
+          <label for="languages">Languages</label>
+          <input id="languages" placeholder="e.g. Hindi, English" />
+        </div>
+        <div class="form-group">
+          <label for="religion">Religion</label>
+          <input id="religion" placeholder="e.g. Hindu" />
+        </div>
+        <div class="form-group">
+          <label for="festivals">Festivals</label>
+          <input id="festivals" placeholder="e.g. Diwali, Holi" />
+        </div>
+        <div class="form-group">
+          <label for="engagement">Level of Engagement</label>
+          <select id="engagement">
+            <option>Casual</option>
+            <option>Moderate</option>
+            <option>Deep</option>
+          </select>
+        </div>
+        <button class="submit-btn">Find Cultural Resources</button>
+      </div>
+      <!-- Tab 2: Preserve My Culture (example content) -->
+      <!--
+      <div style="display:none">
+        <div class="summary">
+          <strong>Boston, USA</strong> | <span>Culture: Indian</span> | <span>Engagement: Deep</span>
+        </div>
+        <h2>Preserve My Culture</h2>
+        <ul>
+          <li>Communities & Organizations</li>
+          <li>Spaces & Resources</li>
+          <li>Events & Calendar</li>
+          <li>Suggested Weekly Routine</li>
+        </ul>
+      </div>
+      -->
+      <!-- Tab 3: Explore Local Cultures (example content) -->
+      <!--
+      <div style="display:none">
+        <div class="summary">
+          <strong>Boston, USA</strong> | <span>Culture: Indian</span> | <span>Engagement: Deep</span>
+        </div>
+        <h2>Explore Local Cultures</h2>
+        <ul>
+          <li>Cultural Landscape & Profiles</li>
+          <li>Comparisons & Integration Guides</li>
+        </ul>
+      </div>
+      -->
+    </div>
+  </div>
+</body>
+</html>

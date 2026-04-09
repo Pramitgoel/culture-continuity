@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Animated Tabs Carousel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      color: #23223a;
+      min-height: 100vh;
+    }
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1.2rem 2.5rem 0.5rem 2.5rem;
+      background: transparent;
+      font-weight: 700;
+      font-size: 1.1rem;
+      gap: 2.5rem;
+    }
+    .nav-logo {
+      margin-right: auto;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      letter-spacing: -1px;
+    }
+    .nav-link {
+      color: #3b0ca3;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: #4895ef;
+    }
+    .carousel-container {
+      max-width: 700px;
+      margin: 3.5rem auto 0 auto;
+      background: #fff;
+      border-radius: 2rem;
+      box-shadow: 0 4px 32px #4895ef22;
+      padding: 2.5rem 2rem 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .tabs {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 2.2rem;
+      justify-content: center;
+    }
+    .tab {
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.7rem 1.7rem;
+      border-radius: 1.2rem;
+      background: #e0e7ff;
+      color: #3b0ca3;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+    }
+    .tab.active, .tab:hover {
+      background: #4895ef;
+      color: #fff;
+    }
+    .carousel-slide {
+      width: 100%;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide-icon {
+      font-size: 2.7rem;
+      margin-bottom: 1.1rem;
+      color: #4895ef;
+      filter: drop-shadow(0 2px 8px #4895ef33);
+    }
+    .slide-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      margin-bottom: 0.7rem;
+      text-align: center;
+    }
+    .slide-desc {
+      color: #23223a;
+      font-size: 1.07rem;
+      opacity: 0.85;
+      text-align: center;
+      max-width: 420px;
+    }
+    .how-steps {
+      display: flex;
+      gap: 2.2rem;
+      margin: 3.5rem auto 0 auto;
+      justify-content: center;
+      max-width: 900px;
+      flex-wrap: wrap;
+    }
+    .how-step {
+      background: #e0e7ff;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.1rem;
+      min-width: 180px;
+      max-width: 220px;
+      text-align: center;
+      font-size: 1.05rem;
+      color: #3b0ca3;
+      font-weight: 700;
+      box-shadow: 0 2px 8px #4895ef22;
+    }
+    @media (max-width: 900px) {
+      .carousel-container { padding: 1.2rem 0.5rem; }
+      .how-steps { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-logo">🌏 Culture Continuity</div>
+    <a class="nav-link" href="#">Home</a>
+    <a class="nav-link" href="#">Preserve</a>
+    <a class="nav-link" href="#">Explore</a>
+    <a class="nav-link" href="#">Events</a>
+  </nav>
+  <div class="carousel-container">
+    <div class="tabs">
+      <button class="tab active" onclick="showSlide(0)">🛡️ Preserve</button>
+      <button class="tab" onclick="showSlide(1)">🌏 Explore</button>
+      <button class="tab" onclick="showSlide(2)">🤝 Connect</button>
+      <button class="tab" onclick="showSlide(3)">🎉 Events</button>
+    </div>
+    <div id="carousel-slides">
+      <div class="carousel-slide" id="slide-0">
+        <div class="slide-icon">🛡️</div>
+        <div class="slide-title">Preserve Your Culture</div>
+        <div class="slide-desc">Connect with communities, events, and spaces that help you stay rooted in your traditions.</div>
+      </div>
+      <div class="carousel-slide" id="slide-1" style="display:none;">
+        <div class="slide-icon">🌏</div>
+        <div class="slide-title">Explore Local Cultures</div>
+        <div class="slide-desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+      </div>
+      <div class="carousel-slide" id="slide-2" style="display:none;">
+        <div class="slide-icon">🤝</div>
+        <div class="slide-title">Meaningful Connections</div>
+        <div class="slide-desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+      </div>
+      <div class="carousel-slide" id="slide-3" style="display:none;">
+        <div class="slide-icon">🎉</div>
+        <div class="slide-title">Events & Festivals</div>
+        <div class="slide-desc">Never miss a celebration! Find festivals, gatherings, and cultural events near you.</div>
+      </div>
+    </div>
+  </div>
+  <div class="how-steps">
+    <div class="how-step">1. Enter your details</div>
+    <div class="how-step">2. Preserve your culture</div>
+    <div class="how-step">3. Explore local cultures</div>
+    <div class="how-step">4. Make connections</div>
+  </div>
+  <script>
+    function showSlide(idx) {
+      for (let i = 0; i < 4; i++) {
+        document.getElementById('slide-' + i).style.display = (i === idx) ? 'flex' : 'none';
+        document.getElementsByClassName('tab')[i].classList.toggle('active', i === idx);
+      }
+    }
+  </script>
+</body>
+</html>

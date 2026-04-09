@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Mosaic Tile Layout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #e0e7ff 0%, #a1c4fd 100%);
+      color: #23223a;
+      overflow-x: hidden;
+    }
+    .nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1.2rem 2.5rem 0.5rem 2.5rem;
+      background: transparent;
+      font-weight: 700;
+      font-size: 1.1rem;
+      gap: 2.5rem;
+    }
+    .nav-logo {
+      margin-right: auto;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      letter-spacing: -1px;
+    }
+    .nav-link {
+      color: #3b0ca3;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: #4895ef;
+    }
+    .mosaic {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 180px);
+      gap: 1.5rem;
+      max-width: 950px;
+      margin: 4rem auto 0 auto;
+      padding: 0 1rem;
+    }
+    .tile {
+      background: linear-gradient(120deg, #e0e7ff 60%, #fff 100%);
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px #4895ef22;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3b0ca3;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .tile:hover {
+      box-shadow: 0 8px 32px #4895ef33;
+      transform: scale(1.04);
+      z-index: 2;
+    }
+    .tile.welcome {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+      background: linear-gradient(120deg, #a1c4fd 60%, #e0e7ff 100%);
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 900;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 2.2rem 1.5rem 1.5rem 2.2rem;
+      text-align: left;
+      letter-spacing: -1px;
+    }
+    .tile-btns {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 1.2rem;
+    }
+    .tile-btn {
+      background: #4895ef;
+      color: #fff;
+      border: none;
+      border-radius: 1.2rem;
+      padding: 0.7rem 1.7rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #4895ef44;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .tile-btn.secondary {
+      background: #fff;
+      color: #3b0ca3;
+      border: 2px solid #3b0ca3;
+    }
+    .tile-btn:hover {
+      background: #3b0ca3;
+      color: #fff;
+      box-shadow: 0 4px 16px #3b0ca344;
+    }
+    .tile-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+      color: #4895ef;
+    }
+    .tile-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3b0ca3;
+      margin-bottom: 0.5rem;
+    }
+    .tile-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+    @media (max-width: 900px) {
+      .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 180px); }
+      .tile.welcome { grid-column: 1 / span 2; grid-row: 1 / span 2; }
+    }
+    @media (max-width: 600px) {
+      .mosaic { grid-template-columns: 1fr; grid-template-rows: repeat(6, 180px); }
+      .tile.welcome { grid-column: 1; grid-row: 1 / span 2; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-logo">🌏 Culture Continuity</div>
+    <a class="nav-link" href="#">Home</a>
+    <a class="nav-link" href="#">Preserve</a>
+    <a class="nav-link" href="#">Explore</a>
+    <a class="nav-link" href="#">Events</a>
+  </nav>
+  <div class="mosaic">
+    <div class="tile welcome">
+      Welcome to Culture Continuity<br>
+      <span style="font-size:1.1rem;font-weight:400;">Find your community, celebrate your heritage, and discover the world around you.</span>
+      <div class="tile-btns">
+        <button class="tile-btn">🛡️ Preserve</button>
+        <button class="tile-btn secondary">🌏 Explore</button>
+      </div>
+    </div>
+    <div class="tile">
+      <div class="tile-icon">🛡️</div>
+      <div class="tile-label">Preserve</div>
+      <div class="tile-desc">Stay rooted in your traditions.</div>
+    </div>
+    <div class="tile">
+      <div class="tile-icon">🌏</div>
+      <div class="tile-label">Explore</div>
+      <div class="tile-desc">Discover local cultures.</div>
+    </div>
+    <div class="tile">
+      <div class="tile-icon">🤝</div>
+      <div class="tile-label">Connect</div>
+      <div class="tile-desc">Make new friends.</div>
+    </div>
+    <div class="tile">
+      <div class="tile-icon">🎉</div>
+      <div class="tile-label">Events</div>
+      <div class="tile-desc">Find celebrations near you.</div>
+    </div>
+  </div>
+</body>
+</html>

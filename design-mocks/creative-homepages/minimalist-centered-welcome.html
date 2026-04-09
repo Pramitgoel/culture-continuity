@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Minimalist Centered Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #e0e7ff 0%, #a1c4fd 100%);
+      color: #23223a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+    .centered-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh;
+      width: 100vw;
+    }
+    .welcome {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #fff8;
+      letter-spacing: -1px;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .main-actions {
+      display: flex;
+      gap: 2.2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .main-btn {
+      background: #4895ef;
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.2rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #4895ef44;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .main-btn.secondary {
+      background: #fff;
+      color: #3b0ca3;
+      border: 2px solid #3b0ca3;
+    }
+    .main-btn:hover {
+      background: #3b0ca3;
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #3b0ca344;
+    }
+    .features-row {
+      display: flex;
+      gap: 2.2rem;
+      margin-top: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      color: #4895ef;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+    .feature-label {
+      font-size: 1.05rem;
+      color: #3b0ca3;
+      font-weight: 700;
+      text-align: center;
+    }
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 90px;
+    }
+    @media (max-width: 700px) {
+      .main-actions, .features-row { gap: 1rem; }
+      .welcome { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="centered-content">
+    <div class="welcome">Welcome to Culture Continuity</div>
+    <div class="tagline">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+    <div class="main-actions">
+      <button class="main-btn">🛡️ Preserve My Culture</button>
+      <button class="main-btn secondary">🌏 Explore Local Cultures</button>
+    </div>
+    <div class="features-row">
+      <div class="feature">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-label">Preserve</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌏</div>
+        <div class="feature-label">Explore</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <div class="feature-label">Connect</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎉</div>
+        <div class="feature-label">Events</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option 2: Banner Function Choice</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f7f7fa; margin: 0; }
+    .full-form { max-width: 520px; margin: 3rem auto; background: #fff; border-radius: 1.2rem; box-shadow: 0 2px 16px #0002; padding: 2.5rem 2rem; }
+    .form-title { font-size: 2rem; font-weight: bold; margin-bottom: 2rem; }
+    .form-group { margin-bottom: 1.5rem; }
+    label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+    input, select { width: 100%; padding: 0.7rem; border-radius: 0.4rem; border: 1px solid #bbb; }
+    .submit-btn { width: 100%; padding: 1rem; border-radius: 0.5rem; background: #3b0ca3; color: #fff; font-size: 1.2rem; font-weight: bold; border: none; margin-top: 1.5rem; cursor: pointer; }
+    .banner { background: #e0e7ff; padding: 1.5rem 1rem; border-radius: 0.7rem; margin: 2rem auto 1.5rem auto; max-width: 700px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 8px #3b0ca322; }
+    .banner-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; }
+    .banner-btns { display: flex; gap: 2rem; }
+    .banner-btn { padding: 1.2rem 2.5rem; border-radius: 0.7rem; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; background: #fff; color: #3b0ca3; box-shadow: 0 2px 8px #0001; transition: background 0.2s; }
+    .banner-btn:hover { background: #3b0ca3; color: #fff; }
+    .summary { max-width: 700px; margin: 0 auto 2rem auto; background: #f0f0ff; padding: 1rem; border-radius: 0.5rem; color: #333; }
+    .section-content { max-width: 700px; margin: 0 auto; background: #fff; border-radius: 1rem; box-shadow: 0 2px 8px #0001; padding: 2rem; }
+    @media (max-width: 700px) { .banner-btns { flex-direction: column; gap: 1rem; } .section-content, .summary { padding: 1rem; } .full-form { padding: 1.2rem 0.5rem; } }
+  </style>
+</head>
+<body>
+  <div class="full-form">
+    <div class="form-title">Find Cultural Resources</div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input id="city" placeholder="e.g. Boston" />
+    </div>
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input id="country" placeholder="e.g. USA" />
+    </div>
+    <div class="form-group">
+      <label for="university">University</label>
+      <input id="university" placeholder="e.g. Harvard" />
+    </div>
+    <div class="form-group">
+      <label for="languages">Languages</label>
+      <input id="languages" placeholder="e.g. Hindi, English" />
+    </div>
+    <div class="form-group">
+      <label for="religion">Religion</label>
+      <input id="religion" placeholder="e.g. Hindu" />
+    </div>
+    <div class="form-group">
+      <label for="festivals">Festivals</label>
+      <input id="festivals" placeholder="e.g. Diwali, Holi" />
+    </div>
+    <div class="form-group">
+      <label for="engagement">Level of Engagement</label>
+      <select id="engagement">
+        <option>Casual</option>
+        <option>Moderate</option>
+        <option>Deep</option>
+      </select>
+    </div>
+    <button class="submit-btn">Find Cultural Resources</button>
+  </div>
+  <!-- Banner and results (shown after submit) -->
+  <div class="banner">
+    <div class="banner-title">What would you like to do next?</div>
+    <div class="banner-btns">
+      <button class="banner-btn">🛡️ Preserve My Culture</button>
+      <button class="banner-btn">🌍 Cultural Understanding</button>
+    </div>
+  </div>
+  <div class="summary">
+    <strong>Boston, USA</strong> | <span>Culture: Indian</span> | <span>Engagement: Deep</span>
+    <button style="float:right; background:#3b0ca3; color:#fff; border:none; border-radius:0.3rem; padding:0.3rem 1rem; margin-left:1rem;">Edit Info</button>
+  </div>
+  <div class="section-content">
+    <h2>Preserve My Culture</h2>
+    <ul>
+      <li>Communities & Organizations</li>
+      <li>Spaces & Resources</li>
+      <li>Events & Calendar</li>
+    </ul>
+    <p style="color:#888">(Switch sections using the banner above)</p>
+  </div>
+</body>
+</html>

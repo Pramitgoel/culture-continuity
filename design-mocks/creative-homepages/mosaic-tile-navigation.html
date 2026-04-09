@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Mosaic Tile Navigation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f8fafc;
+      color: #23223a;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .mosaic-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .mosaic-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+      letter-spacing: -1px;
+    }
+    .mosaic-tagline {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 1.5rem 1.5rem;
+      margin: 0 auto;
+      max-width: 700px;
+      margin-top: 2.5rem;
+    }
+    .mosaic-tile {
+      background: linear-gradient(135deg, #eab676 0%, #fff8e1 100%);
+      border-radius: 1.2rem;
+      box-shadow: 0 0 24px 0 #eab67644, 0 0 8px #b77b2b22;
+      border: 2.5px solid #eab67688;
+      padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #b77b2b;
+    }
+    .mosaic-tile:hover {
+      box-shadow: 0 0 48px 0 #eab676aa, 0 0 32px #b77b2bcc;
+      transform: translateY(-4px) scale(1.06) rotate(-2deg);
+      border: 2.5px solid #b77b2bcc;
+      background: linear-gradient(135deg, #fff8e1 0%, #eab676 100%);
+    }
+    .mosaic-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+      color: #b77b2b;
+      filter: drop-shadow(0 2px 8px #eab676cc);
+    }
+    @media (max-width: 900px) {
+      .mosaic-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .mosaic-grid { grid-template-columns: 1fr; }
+      .mosaic-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mosaic-container">
+    <div class="mosaic-title">Welcome to Culture Continuity</div>
+    <div class="mosaic-tagline">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+    <div class="mosaic-grid">
+      <div class="mosaic-tile">
+        <div class="mosaic-icon">🛡️</div>
+        Preserve My Culture
+      </div>
+      <div class="mosaic-tile">
+        <div class="mosaic-icon">🌏</div>
+        Explore Local Cultures
+      </div>
+      <div class="mosaic-tile">
+        <div class="mosaic-icon">🤝</div>
+        Meaningful Connections
+      </div>
+      <div class="mosaic-tile">
+        <div class="mosaic-icon">🎉</div>
+        Events & Festivals
+      </div>
+      <div class="mosaic-tile">
+        <div class="mosaic-icon">📚</div>
+        Learn & Share
+      </div>
+      <div class="mosaic-tile">
+        <div class="mosaic-icon">🗺️</div>
+        Map & Guides
+      </div>
+    </div>
+  </div>
+</body>
+</html>

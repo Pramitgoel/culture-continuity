@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Home</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #e0e7ff 0%, #f7f7fa 100%);
+      margin: 0;
+      color: #222;
+    }
+    .header {
+      background: linear-gradient(90deg, #3b0ca3 0%, #4361ee 100%);
+      color: #fff;
+      padding: 2.5rem 0 1.5rem 0;
+      text-align: center;
+      border-radius: 0 0 2.5rem 2.5rem;
+      box-shadow: 0 4px 24px #3b0ca344;
+    }
+    .site-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+    }
+    .site-subtitle {
+      font-size: 1.3rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+    }
+    .tab {
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.9rem 2.2rem;
+      border-radius: 1.5rem 1.5rem 0 0;
+      background: #fff;
+      color: #3b0ca3;
+      border: none;
+      box-shadow: 0 2px 8px #3b0ca322;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-bottom: -1.5rem;
+      outline: none;
+    }
+    .tab.active, .tab:hover {
+      background: #3b0ca3;
+      color: #fff;
+      box-shadow: 0 4px 16px #3b0ca344;
+    }
+    .main-content {
+      max-width: 700px;
+      margin: 3.5rem auto 0 auto;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 16px #0002;
+      padding: 2.5rem 2rem 2.5rem 2rem;
+      text-align: center;
+    }
+    .purpose {
+      font-size: 1.25rem;
+      color: #3b0ca3;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .how-to {
+      text-align: left;
+      margin: 2.5rem auto 0 auto;
+      max-width: 520px;
+      background: #f7f7fa;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 2px 8px #3b0ca311;
+    }
+    .how-to-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 1rem;
+    }
+    .how-to-steps {
+      list-style: decimal inside;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.7;
+      padding-left: 0;
+      margin: 0;
+    }
+    .hero-img {
+      width: 120px;
+      margin: 2rem auto 1.5rem auto;
+      display: block;
+      filter: drop-shadow(0 2px 8px #3b0ca322);
+    }
+    @media (max-width: 700px) {
+      .main-content { padding: 1.2rem 0.5rem; }
+      .how-to { padding: 1.2rem 0.5rem; }
+      .tabs { gap: 0.5rem; }
+      .tab { padding: 0.7rem 1rem; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="site-title">Culture Continuity</div>
+    <div class="site-subtitle">Helping you stay connected to your roots and explore new cultures, wherever you go.</div>
+    <div class="tabs">
+      <button class="tab active">Home</button>
+      <button class="tab">🛡️ Preserve My Culture</button>
+      <button class="tab">🌏 Explore Local Cultures</button>
+    </div>
+  </div>
+  <div class="main-content">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Culture" class="hero-img" />
+    <div class="purpose">
+      <span>Culture Continuity is your companion for finding cultural communities, events, and resources in your new city or campus, while also helping you understand and engage with local cultures.</span>
+    </div>
+    <div class="how-to">
+      <div class="how-to-title">How to Use:</div>
+      <ol class="how-to-steps">
+        <li><strong>Enter your details:</strong> Tell us your destination, languages, religion, and cultural interests.</li>
+        <li><strong>Preserve your culture:</strong> Discover communities, events, and spaces to stay connected with your heritage.</li>
+        <li><strong>Explore local cultures:</strong> Learn about the cultural landscape, compare values, and find integration guides for your new home.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>

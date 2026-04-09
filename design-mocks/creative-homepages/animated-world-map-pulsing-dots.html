@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Animated World Map Pulsing Dots</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      color: #23223a;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .map-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-svg {
+      width: 80vw;
+      max-width: 900px;
+      height: auto;
+      opacity: 0.18;
+      filter: blur(0.5px) drop-shadow(0 4px 24px #4895ef33);
+    }
+    .dot {
+      animation: pulse 1.8s infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .dot1 { animation-delay: 0s; }
+    .dot2 { animation-delay: 0.5s; }
+    .dot3 { animation-delay: 1s; }
+    .dot4 { animation-delay: 1.3s; }
+    .dot5 { animation-delay: 0.8s; }
+    .dot6 { animation-delay: 1.5s; }
+    @keyframes pulse {
+      0% { r: 7; opacity: 0.7; }
+      50% { r: 13; opacity: 0.2; }
+      100% { r: 7; opacity: 0.7; }
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #4895ef44;
+      letter-spacing: -1px;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .btn {
+      background: linear-gradient(90deg, #4895ef 0%, #3b0ca3 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #4895ef44;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #4895efcc;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #3b0ca3 0%, #4895ef 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #4895ef44;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 2.2rem 2.2rem;
+      margin: 0 auto;
+      max-width: 520px;
+      margin-top: 2.5rem;
+    }
+    .card {
+      background: rgba(255,255,255,0.7);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 32px 0 #4895ef55, 0 0 16px #3b0ca344;
+      border: 2.5px solid #4895ef88;
+      padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      box-shadow: 0 0 48px 0 #4895efaa, 0 0 32px #3b0ca3cc;
+      transform: translateY(-4px) scale(1.06) rotate(-2deg);
+      border: 2.5px solid #3b0ca3cc;
+    }
+    .icon {
+      font-size: 2.7rem;
+      margin-bottom: 0.7rem;
+      color: #3b0ca3;
+      filter: drop-shadow(0 2px 8px #4895efcc);
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #3b0ca3;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 8px #4895ef88;
+    }
+    .desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+      text-shadow: 0 0 8px #4895efcc;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .main-content { padding: 2rem 0.2rem 1rem 0.2rem; }
+      .title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="map-bg">
+    <svg class="map-svg" viewBox="0 0 900 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100,200 Q200,100 400,120 Q600,140 800,80 Q850,200 700,300 Q500,400 300,350 Q150,300 100,200 Z" fill="#4895ef"/>
+      <circle class="dot dot1" cx="180" cy="180" r="7" fill="#3b0ca3"/>
+      <circle class="dot dot2" cx="350" cy="110" r="7" fill="#3b0ca3"/>
+      <circle class="dot dot3" cx="600" cy="130" r="7" fill="#3b0ca3"/>
+      <circle class="dot dot4" cx="750" cy="90" r="7" fill="#3b0ca3"/>
+      <circle class="dot dot5" cx="650" cy="270" r="7" fill="#3b0ca3"/>
+      <circle class="dot dot6" cx="400" cy="320" r="7" fill="#3b0ca3"/>
+    </svg>
+  </div>
+  <div class="main-content">
+    <div class="title">Welcome to Culture Continuity</div>
+    <div class="tagline">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+    <div class="btns">
+      <button class="btn">🛡️ Preserve My Culture</button>
+      <button class="btn">🌏 Explore Local Cultures</button>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <div class="card-title">Preserve Your Culture</div>
+        <div class="desc">Connect with communities, events, and spaces that help you stay rooted in your traditions.</div>
+      </div>
+      <div class="card">
+        <div class="icon">🌏</div>
+        <div class="card-title">Explore Local Cultures</div>
+        <div class="desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <div class="card-title">Meaningful Connections</div>
+        <div class="desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+      </div>
+      <div class="card">
+        <div class="icon">🎉</div>
+        <div class="card-title">Events & Festivals</div>
+        <div class="desc">Never miss a celebration! Find festivals, gatherings, and cultural events near you.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Psychedelic Waves</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #1a1a2e;
+      color: #fff;
+    }
+    .waves-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .waves-bg svg {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      animation: waveMove 18s linear infinite alternate;
+    }
+    @keyframes waveMove {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-30px); }
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .psy-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 0 24px #ffb347, 0 0 12px #43e97b;
+      letter-spacing: -1px;
+      animation: colorPulse 4s infinite alternate;
+    }
+    @keyframes colorPulse {
+      0% { color: #fff; text-shadow: 0 0 24px #ffb347, 0 0 12px #43e97b; }
+      100% { color: #43e97b; text-shadow: 0 0 32px #43e97b, 0 0 24px #ffb347; }
+    }
+    .psy-tagline {
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+      text-shadow: 0 0 8px #43e97bcc;
+    }
+    .psy-btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .psy-btn {
+      background: linear-gradient(90deg, #ffb347 0%, #43e97b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #ffb34744;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #43e97bcc;
+    }
+    .psy-btn:hover {
+      background: linear-gradient(90deg, #43e97b 0%, #ffb347 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #ffb34744;
+    }
+    .psy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 2.2rem 2.2rem;
+      margin: 0 auto;
+      max-width: 520px;
+      margin-top: 2.5rem;
+    }
+    .psy-card {
+      background: rgba(255,255,255,0.13);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 32px 0 #ffb34755, 0 0 16px #43e97b44;
+      border: 2.5px solid #ffb34788;
+      padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      animation: cardglowpsy 3s infinite alternate;
+    }
+    .psy-card:hover {
+      box-shadow: 0 0 48px 0 #ffb347aa, 0 0 32px #43e97bcc;
+      transform: translateY(-4px) scale(1.06) rotate(-2deg);
+      border: 2.5px solid #43e97bcc;
+    }
+    @keyframes cardglowpsy {
+      0% { box-shadow: 0 0 32px 0 #ffb34755, 0 0 16px #43e97b44; }
+      100% { box-shadow: 0 0 48px 0 #ffb347aa, 0 0 32px #43e97bcc; }
+    }
+    .psy-icon {
+      font-size: 2.7rem;
+      margin-bottom: 0.7rem;
+      color: #ffb347;
+      filter: drop-shadow(0 2px 8px #43e97bcc);
+      animation: iconpulsepsy 2s infinite alternate;
+    }
+    @keyframes iconpulsepsy {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.13) rotate(-8deg); }
+    }
+    .psy-title-card {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 8px #ffb34788;
+    }
+    .psy-desc {
+      color: #fff;
+      font-size: 0.97rem;
+      opacity: 0.85;
+      text-shadow: 0 0 8px #43e97bcc;
+    }
+    @media (max-width: 700px) {
+      .psy-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .main-content { padding: 2rem 0.2rem 1rem 0.2rem; }
+      .psy-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="waves-bg">
+    <svg viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="wave1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffb347" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#43e97b" stop-opacity="0.7"/>
+        </linearGradient>
+        <linearGradient id="wave2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#43e97b" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#ffb347" stop-opacity="0.7"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,700 Q480,900 960,700 T1920,700 V1080 H0 Z" fill="url(#wave1)">
+        <animate attributeName="d" dur="12s" repeatCount="indefinite" values="M0,700 Q480,900 960,700 T1920,700 V1080 H0 Z;M0,720 Q480,800 960,720 T1920,720 V1080 H0 Z;M0,700 Q480,900 960,700 T1920,700 V1080 H0 Z"/>
+      </path>
+      <path d="M0,800 Q480,1000 960,800 T1920,800 V1080 H0 Z" fill="url(#wave2)">
+        <animate attributeName="d" dur="14s" repeatCount="indefinite" values="M0,800 Q480,1000 960,800 T1920,800 V1080 H0 Z;M0,820 Q480,900 960,820 T1920,820 V1080 H0 Z;M0,800 Q480,1000 960,800 T1920,800 V1080 H0 Z"/>
+      </path>
+    </svg>
+  </div>
+  <div class="main-content">
+    <div class="psy-title">Welcome to Culture Continuity</div>
+    <div class="psy-tagline">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+    <div class="psy-btns">
+      <button class="psy-btn">🛡️ Preserve My Culture</button>
+      <button class="psy-btn">🌏 Explore Local Cultures</button>
+    </div>
+    <div class="psy-grid">
+      <div class="psy-card">
+        <div class="psy-icon">🛡️</div>
+        <div class="psy-title-card">Preserve Your Culture</div>
+        <div class="psy-desc">Connect with communities, events, and spaces that help you stay rooted in your traditions.</div>
+      </div>
+      <div class="psy-card">
+        <div class="psy-icon">🌏</div>
+        <div class="psy-title-card">Explore Local Cultures</div>
+        <div class="psy-desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+      </div>
+      <div class="psy-card">
+        <div class="psy-icon">🤝</div>
+        <div class="psy-title-card">Meaningful Connections</div>
+        <div class="psy-desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+      </div>
+      <div class="psy-card">
+        <div class="psy-icon">🎉</div>
+        <div class="psy-title-card">Events & Festivals</div>
+        <div class="psy-desc">Never miss a celebration! Find festivals, gatherings, and cultural events near you.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

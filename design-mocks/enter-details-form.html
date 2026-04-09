@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter Details - Culture Continuity</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      margin: 0;
+      color: #23223a;
+    }
+    .header {
+      background: linear-gradient(90deg, #3b0ca3 0%, #4895ef 100%);
+      color: #fff;
+      padding: 1.1rem 0 0.7rem 0;
+      text-align: center;
+      border-radius: 0 0 1.2rem 1.2rem;
+      box-shadow: 0 2px 12px #3b0ca344;
+      margin-bottom: 0.5rem;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .site-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin: 0;
+      text-shadow: 0 2px 8px #0002;
+      text-align: left;
+      flex: 1;
+    }
+    .tabs {
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      flex: 1.5;
+      justify-content: flex-end;
+    }
+    .tab {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      border-radius: 1.2rem 1.2rem 0 0;
+      background: #fff;
+      color: #3b0ca3;
+      border: none;
+      box-shadow: 0 2px 8px #3b0ca322;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-bottom: -0.7rem;
+      outline: none;
+      border-top: 3px solid transparent;
+    }
+    .tab.active, .tab:hover {
+      background: #3b0ca3;
+      color: #fff;
+      box-shadow: 0 4px 16px #3b0ca344;
+      border-top: 3px solid #4895ef;
+    }
+    .form-section-main {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 32px #4895ef44;
+      border: 2.5px solid #4895ef22;
+      padding: 2.5rem 2.2rem 2.5rem 2.2rem;
+      max-width: 540px;
+      width: 100%;
+      margin: 3.5rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .form-section-title-main {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #3b0ca3;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .form-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #23223a;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .form-section {
+      margin-bottom: 1.2rem;
+      width: 100%;
+    }
+    .form-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #3b0ca3;
+      margin-bottom: 0.5rem;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+      color: #23223a;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 0.7rem;
+      border: 1.5px solid #4895ef44;
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+      background: #f8fafc;
+      color: #23223a;
+      box-sizing: border-box;
+    }
+    .form-checkbox-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem 1.7rem;
+      margin-bottom: 0.7rem;
+    }
+    .form-checkbox-label {
+      font-size: 1rem;
+      color: #23223a;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .form-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .form-chip {
+      background: #e0e7ff;
+      color: #3b0ca3;
+      border-radius: 1rem;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.97rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .form-chip-remove {
+      margin-left: 0.5rem;
+      cursor: pointer;
+      color: #4895ef;
+      font-weight: bold;
+    }
+    .form-btn {
+      background: linear-gradient(90deg, #4895ef 0%, #3b0ca3 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #4895ef44;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      margin-top: 1.2rem;
+    }
+    .form-btn:hover {
+      background: linear-gradient(90deg, #3b0ca3 0%, #4895ef 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #4895ef44;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="site-title">Culture Continuity</div>
+      <div class="tabs">
+        <button class="tab" onclick="window.location.href='homepage-benefits-fixed.html'">Home</button>
+        <button class="tab active" onclick="window.location.href='enter-details-form.html'">📝 Enter Details</button>
+        <button class="tab" onclick="window.location.href='preserve-culture.html'">🛡️ Preserve My Culture</button>
+        <button class="tab" onclick="window.location.href='explore-cultures.html'">🌏 Explore Local Cultures</button>
+      </div>
+    </div>
+  </div>
+  <div class="form-section-main" id="formSection">
+    <div class="form-section-title-main">Get Started: Tell Us About Yourself</div>
+    <form class="form-card-modern" id="detailedForm">
+        <div class="form-title">Tell Us About Yourself</div>
+        <div class="form-section">
+          <div class="form-section-title">📍 Destination</div>
+          <label class="form-label" for="city">City *</label>
+          <input class="form-input" type="text" id="city" name="city" required value="Boston">
+          <label class="form-label" for="country">Country *</label>
+          <input class="form-input" type="text" id="country" name="country" required value="USA">
+          <label class="form-label" for="university">University (Optional)</label>
+          <input class="form-input" type="text" id="university" name="university" value="Harvard University">
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">🌐 Your Cultural Background</div>
+          <label class="form-label" for="languages">Languages</label>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input class="form-input" type="text" id="languagesInput" placeholder="e.g., Hindi, Mandarin">
+            <button type="button" onclick="addChip('languagesInput','languagesChips')">Add</button>
+          </div>
+          <div class="form-chip-list" id="languagesChips"></div>
+          <label class="form-label" for="religion">Religion / Spiritual Practice</label>
+          <select class="form-select" id="religion" name="religion">
+            <option value="">Select...</option>
+            <option selected>Hinduism</option>
+            <option>Islam</option>
+            <option>Christianity</option>
+            <option>Sikhism</option>
+            <option>Buddhism</option>
+            <option>Jainism</option>
+            <option>Judaism</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">🍲 Food Preferences</div>
+          <div class="form-checkbox-list">
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Vegetarian">Vegetarian</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Vegan">Vegan</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Halal">Halal</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Kosher">Kosher</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Regional Cuisine">Regional Cuisine</label>
+            <label class="form-checkbox-label"><input class="form-checkbox" type="checkbox" name="food" value="Organic">Organic</label>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">🎉 Festivals Celebrated</div>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input class="form-input" type="text" id="festivalsInput" placeholder="e.g., Diwali, Eid, Christmas">
+            <button type="button" onclick="addChip('festivalsInput','festivalsChips')">Add</button>
+          </div>
+          <div class="form-chip-list" id="festivalsChips"></div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">🪢 Other Cultural Identifiers</div>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input class="form-input" type="text" id="identifiersInput" placeholder="e.g., North Indian, Tamil Brahmin">
+            <button type="button" onclick="addChip('identifiersInput','identifiersChips')">Add</button>
+          </div>
+          <div class="form-chip-list" id="identifiersChips"></div>
+        </div>
+        <button class="form-btn" type="submit">Continue</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function addChip(inputId, chipsId, valueOverride) {
+      var input = document.getElementById(inputId);
+      var chips = document.getElementById(chipsId);
+      var value = valueOverride !== undefined ? valueOverride : input.value.trim();
+      if (!value) return;
+      var chip = document.createElement('span');
+      chip.className = 'form-chip';
+      chip.innerHTML = value + '<span class="form-chip-remove" onclick="this.parentElement.remove()">×</span>';
+      chips.appendChild(chip);
+      if (valueOverride === undefined) input.value = '';
+    }
+    document.getElementById('detailedForm').onsubmit = function(e) {
+      e.preventDefault();
+      console.log('Form submitted, showing modal');
+      showNextStepModal();
+      return false;
+    };
+    // Auto-add chips for prefilled values on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      // Languages
+      addChip('languagesInput', 'languagesChips', 'Hindi');
+      addChip('languagesInput', 'languagesChips', 'English');
+      // Festivals
+      addChip('festivalsInput', 'festivalsChips', 'Diwali');
+      addChip('festivalsInput', 'festivalsChips', 'Holi');
+      addChip('festivalsInput', 'festivalsChips', 'Navratri');
+      // Identifiers
+      addChip('identifiersInput', 'identifiersChips', 'North Indian');
+      addChip('identifiersInput', 'identifiersChips', 'Tamil Brahmin');
+      addChip('identifiersInput', 'identifiersChips', 'Student');
+    });
+
+    // Modal for next step selection
+    function showNextStepModal() {
+      // Remove any existing modal
+      var existing = document.querySelector('.modal-bg');
+      if (existing) existing.remove();
+
+      var modalBg = document.createElement('div');
+      modalBg.className = 'modal-bg';
+      // Modal background styling
+      modalBg.style.position = 'fixed';
+      modalBg.style.top = 0;
+      modalBg.style.left = 0;
+      modalBg.style.width = '100vw';
+      modalBg.style.height = '100vh';
+      modalBg.style.background = 'rgba(36, 41, 61, 0.32)';
+      modalBg.style.display = 'flex';
+      modalBg.style.alignItems = 'center';
+      modalBg.style.justifyContent = 'center';
+      modalBg.style.zIndex = 1000;
+
+      var modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      // Modal box styling
+      modal.style.background = '#fff';
+      modal.style.borderRadius = '1.2rem';
+      modal.style.boxShadow = '0 8px 32px #4895ef44';
+      modal.style.padding = '2.5rem 2.5rem 2rem 2.5rem';
+      modal.style.maxWidth = '95vw';
+      modal.style.width = '400px';
+      modal.style.textAlign = 'center';
+      modal.style.position = 'relative';
+
+      var title = document.createElement('div');
+      title.className = 'modal-title';
+      title.innerText = 'What would you like to do next?';
+      title.style.fontSize = '1.25rem';
+      title.style.fontWeight = '900';
+      title.style.color = '#3b0ca3';
+      title.style.marginBottom = '1.2rem';
+
+      var btns = document.createElement('div');
+      btns.className = 'modal-btns';
+      btns.style.display = 'flex';
+      btns.style.flexDirection = 'column';
+      btns.style.gap = '1.2rem';
+
+      var btn1 = document.createElement('button');
+      btn1.className = 'modal-btn';
+      btn1.innerText = '🛡️ Preserve My Culture';
+      btn1.style.padding = '1.2rem';
+      btn1.style.borderRadius = '0.7rem';
+      btn1.style.border = 'none';
+      btn1.style.fontSize = '1.1rem';
+      btn1.style.fontWeight = '600';
+      btn1.style.cursor = 'pointer';
+      btn1.style.background = '#e0e7ff';
+      btn1.style.color = '#3b0ca3';
+      btn1.style.transition = 'background 0.2s';
+      btn1.onmouseover = function() { btn1.style.background = '#3b0ca3'; btn1.style.color = '#fff'; };
+      btn1.onmouseout = function() { btn1.style.background = '#e0e7ff'; btn1.style.color = '#3b0ca3'; };
+      btn1.onclick = function() {
+        window.location.href = 'preserve-culture.html';
+      };
+
+      var btn2 = document.createElement('button');
+      btn2.className = 'modal-btn';
+      btn2.innerText = '🌍 Cultural Understanding';
+      btn2.style.padding = '1.2rem';
+      btn2.style.borderRadius = '0.7rem';
+      btn2.style.border = 'none';
+      btn2.style.fontSize = '1.1rem';
+      btn2.style.fontWeight = '600';
+      btn2.style.cursor = 'pointer';
+      btn2.style.background = '#e0e7ff';
+      btn2.style.color = '#3b0ca3';
+      btn2.style.transition = 'background 0.2s';
+      btn2.onmouseover = function() { btn2.style.background = '#3b0ca3'; btn2.style.color = '#fff'; };
+      btn2.onmouseout = function() { btn2.style.background = '#e0e7ff'; btn2.style.color = '#3b0ca3'; };
+      btn2.onclick = function() {
+        window.location.href = 'explore-cultures.html';
+      };
+
+      btns.appendChild(btn1);
+      btns.appendChild(btn2);
+
+      var close = document.createElement('button');
+      close.className = 'modal-close';
+      close.innerText = 'Back to Edit Info';
+      close.style.marginTop = '1.5rem';
+      close.style.color = '#888';
+      close.style.background = 'none';
+      close.style.border = 'none';
+      close.style.cursor = 'pointer';
+      close.style.textDecoration = 'underline';
+      close.onclick = function() {
+        document.body.removeChild(modalBg);
+      };
+
+      modal.appendChild(title);
+      modal.appendChild(btns);
+      modal.appendChild(close);
+      modalBg.appendChild(modal);
+      document.body.appendChild(modalBg);
+    }
+  </script>
+</body>
+</html>

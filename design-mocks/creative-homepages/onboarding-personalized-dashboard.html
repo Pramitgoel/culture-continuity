@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Personalized Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #f7e9d7 100%);
+      color: #23223a;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .dashboard-container {
+      width: 100vw;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1rem 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .dashboard-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 0.7rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+    }
+    .dashboard-welcome {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 2rem 2rem;
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+    .dashboard-card {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px #eab67644;
+      border: 2px solid #eab67655;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .dashboard-card:hover {
+      box-shadow: 0 0 32px 0 #eab676aa, 0 0 16px #b77b2bcc;
+      transform: translateY(-4px) scale(1.04);
+      border: 2px solid #b77b2bcc;
+    }
+    .dashboard-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #b77b2b;
+      margin-bottom: 0.5rem;
+    }
+    .dashboard-card-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+    }
+    .dashboard-profile {
+      background: #fff8e1;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px #eab67644;
+      border: 2px solid #eab67655;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 1.1rem;
+    }
+    .dashboard-profile-label {
+      color: #b77b2b;
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+    .dashboard-profile-row {
+      margin-bottom: 0.4rem;
+    }
+    @media (max-width: 900px) {
+      .dashboard-cards { grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="dashboard-title">Welcome!</div>
+    <div class="dashboard-welcome">Here’s your personalized dashboard. All resources, events, and communities are tailored for your destination and cultural background.</div>
+    <div class="dashboard-profile">
+      <div class="dashboard-profile-row"><span class="dashboard-profile-label">City:</span>Boston</div>
+      <div class="dashboard-profile-row"><span class="dashboard-profile-label">Country:</span>United States</div>
+      <div class="dashboard-profile-row"><span class="dashboard-profile-label">University:</span>Harvard University</div>
+      <div class="dashboard-profile-row"><span class="dashboard-profile-label">Languages:</span>Hindi, English</div>
+      <div class="dashboard-profile-row"><span class="dashboard-profile-label">Religion:</span>Hinduism</div>
+      <div class="dashboard-profile-row"><span class="dashboard-profile-label">Food Preferences:</span>Vegetarian, Halal</div>
+      <div class="dashboard-profile-row"><span class="dashboard-profile-label">Festivals:</span>Diwali, Holi</div>
+      <div class="dashboard-profile-row"><span class="dashboard-profile-label">Identifiers:</span>North Indian</div>
+    </div>
+    <div class="dashboard-cards">
+      <div class="dashboard-card">
+        <div class="dashboard-card-title">Upcoming Events</div>
+        <div class="dashboard-card-desc">Diwali Night at Harvard · Oct 20<br>Holi Festival · March 15</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="dashboard-card-title">Community Groups</div>
+        <div class="dashboard-card-desc">Harvard Indian Society<br>Boston Cultural Club</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="dashboard-card-title">Integration Guides</div>
+        <div class="dashboard-card-desc">Student Life in Boston<br>Indian Cultural Etiquette</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="dashboard-card-title">Explore More</div>
+        <div class="dashboard-card-desc">Discover other cultures, events, and resources nearby.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

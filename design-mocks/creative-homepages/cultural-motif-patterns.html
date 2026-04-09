@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Continuity - Cultural Motif Patterns</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: #f8fafc;
+      color: #23223a;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .motif-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      opacity: 0.7;
+    }
+    .motif-bg svg {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .motif-title {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #b77b2b;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      text-shadow: 0 2px 12px #eab67644;
+      letter-spacing: -1px;
+    }
+    .motif-tagline {
+      font-size: 1.2rem;
+      color: #23223a;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 600px;
+    }
+    .motif-btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .motif-btn {
+      background: linear-gradient(90deg, #eab676 0%, #b77b2b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.7rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #eab67644;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    .motif-btn:hover {
+      background: linear-gradient(90deg, #b77b2b 0%, #eab676 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #eab67644;
+    }
+    .motif-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 2.2rem 2.2rem;
+      margin: 0 auto;
+      max-width: 520px;
+      margin-top: 2.5rem;
+    }
+    .motif-card {
+      background: rgba(255,255,255,0.7);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 32px 0 #eab67655, 0 0 16px #b77b2b44;
+      border: 2.5px solid #eab67688;
+      padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .motif-card:hover {
+      box-shadow: 0 0 48px 0 #eab676aa, 0 0 32px #b77b2bcc;
+      transform: translateY(-4px) scale(1.06) rotate(-2deg);
+      border: 2.5px solid #b77b2bcc;
+    }
+    .motif-icon {
+      font-size: 2.7rem;
+      margin-bottom: 0.7rem;
+      color: #b77b2b;
+      filter: drop-shadow(0 2px 8px #eab676cc);
+    }
+    .motif-title-card {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #b77b2b;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 8px #eab67688;
+    }
+    .motif-desc {
+      color: #23223a;
+      font-size: 0.97rem;
+      opacity: 0.85;
+      text-shadow: 0 0 8px #eab676cc;
+    }
+    @media (max-width: 700px) {
+      .motif-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .main-content { padding: 2rem 0.2rem 1rem 0.2rem; }
+      .motif-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="motif-bg">
+    <svg viewBox="0 0 1920 1080" preserveAspectRatio="none">
+      <defs>
+        <pattern id="motif1" width="120" height="120" patternUnits="userSpaceOnUse">
+          <circle cx="60" cy="60" r="48" fill="#eab676" fill-opacity="0.18"/>
+          <rect x="40" y="40" width="40" height="40" rx="12" fill="#b77b2b" fill-opacity="0.13"/>
+          <polygon points="60,20 80,100 40,100" fill="#b77b2b" fill-opacity="0.09"/>
+        </pattern>
+        <pattern id="motif2" width="80" height="80" patternUnits="userSpaceOnUse">
+          <ellipse cx="40" cy="40" rx="28" ry="12" fill="#b77b2b" fill-opacity="0.13"/>
+          <rect x="20" y="20" width="40" height="40" rx="8" fill="#eab676" fill-opacity="0.09"/>
+        </pattern>
+      </defs>
+      <rect x="0" y="0" width="1920" height="1080" fill="url(#motif1)"/>
+      <rect x="0" y="0" width="1920" height="1080" fill="url(#motif2)"/>
+    </svg>
+  </div>
+  <div class="main-content">
+    <div class="motif-title">Welcome to Culture Continuity</div>
+    <div class="motif-tagline">Find your community, celebrate your heritage, and discover the world around you. Your journey to cultural connection and understanding starts here.</div>
+    <div class="motif-btns">
+      <button class="motif-btn">🛡️ Preserve My Culture</button>
+      <button class="motif-btn">🌏 Explore Local Cultures</button>
+    </div>
+    <div class="motif-grid">
+      <div class="motif-card">
+        <div class="motif-icon">🛡️</div>
+        <div class="motif-title-card">Preserve Your Culture</div>
+        <div class="motif-desc">Connect with communities, events, and spaces that help you stay rooted in your traditions.</div>
+      </div>
+      <div class="motif-card">
+        <div class="motif-icon">🌏</div>
+        <div class="motif-title-card">Explore Local Cultures</div>
+        <div class="motif-desc">Learn about the cultural landscape, compare values, and find integration guides for your new home.</div>
+      </div>
+      <div class="motif-card">
+        <div class="motif-icon">🤝</div>
+        <div class="motif-title-card">Meaningful Connections</div>
+        <div class="motif-desc">Meet people, join groups, and participate in activities that foster cross-cultural friendships.</div>
+      </div>
+      <div class="motif-card">
+        <div class="motif-icon">🎉</div>
+        <div class="motif-title-card">Events & Festivals</div>
+        <div class="motif-desc">Never miss a celebration! Find festivals, gatherings, and cultural events near you.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
