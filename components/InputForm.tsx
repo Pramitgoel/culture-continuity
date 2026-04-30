@@ -29,11 +29,19 @@ export function InputForm({ onSubmit, isLoading, submitLabel }: InputFormProps) 
     customIdentifiers: ['South Asian Community', 'Bollywood Dance'],
   };
 
-  const [destination, setDestination] = useState<Destination>(sampleDestination);
+const [destination, setDestination] = useState<Destination>({
+  city: '',
+  country: '',
+  university: '',
+});
 
-  const [culturalBackground, setCulturalBackground] = useState<CulturalBackground>(
-    sampleCulturalBackground
-  );
+const [culturalBackground, setCulturalBackground] = useState<CulturalBackground>({
+  languages: [],
+  religion: '',
+  foodPreferences: [],
+  festivals: [],
+  customIdentifiers: [],
+});
 
   const [engagementLevel, setEngagementLevel] = useState<EngagementLevel>(EngagementLevel.MODERATE);
 
